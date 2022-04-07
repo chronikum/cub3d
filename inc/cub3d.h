@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 17:29:30 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 17:52:47 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ typedef struct s_math {
 	int			maxY;
 	double		stepX;
 	double		stepY;
-	double		hit;
+	bool		wall_found;
 	double		side;
 	double		lineHeight;
 	double		drawStart;
