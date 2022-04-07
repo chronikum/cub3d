@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/07 17:24:17 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/07 17:33:59 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,12 +48,20 @@ RENDERING = ./src/rendering/render_preparing.c
 TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c
 
+# BONUS STUFF
+
+FRAMES_PER_SECOND = ./src/utils/frames_per_second.c
+
 
 SRCS = $(PARSING) $(RENDERING) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
+
+BONUS = $(FRAMES_PER_SECOND)
 
 PRINT_HEADER	=		echo "                     ";echo "			         _   ___   _ ";echo "			 ___ _ _| |_|_  |_| |";echo "			|  _| | | . |_  | . |";echo "			|___|___|___|___|___|";echo "                     ";
 
 OBJS			=		$(SRCS:.c=.o)
+
+BONUSO			=		$(BONUS:.c=.o)
 
 LIB				=		@make -C ./libft
 
@@ -69,6 +77,15 @@ MLXFLAGS		=		-framework OpenGL -framework AppKit
 						@gcc $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME)			:		$(OBJS)
+						@$(PRINT_HEADER)
+						$(LIB)
+						@echo "$(Cyan)Libft 100%$(Set_Color)"
+						$(MLX)
+						@echo "$(Yellow)MinilibX 100%$(Set_Color)"
+						@gcc $(CFLAGS) $(OBJS) libft/libft.a $(mlxpath)/libmlx.a $(MLXFLAGS) -o $(NAME)
+						@echo "$(Green)Cub3d for $(OS) has been created$(Set_Color)"
+
+bonus			:		$(OBJS) $(BONUSO)
 						@$(PRINT_HEADER)
 						$(LIB)
 						@echo "$(Cyan)Libft 100%$(Set_Color)"
