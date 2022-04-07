@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 17:54:23 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 18:04:08 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 /**
  * Inits and builds the raycaster helper struct
  */
-void	init_raycast(t_cub *c)
+void	init_raycast(t_cub *c, int x)
 {
+    c->math->cameraX = 2 * x / WIDTH - 1; //x-coordinate in camera space // x is ithe iteration value, w describes the WIDTH
 	c->math->rayDirX = c->math->dirX + c->math->planeX * c->math->cameraX;
 	c->math->rayDirY = c->math->dirY + c->math->planeY * c->math->cameraX;
 	c->math->deltaDistX = (c->math->rayDirX == 0) ? 1e30 : fabs(1 / c->math->rayDirX);
@@ -141,13 +142,13 @@ void	raycast_on_grid_lines(t_cub *c)
 
 /*
 	Draws a raycast line and returns the distance to the wall
-	Takes a degree in which angle it should be drawn
+	Takes x as the current vertical pixel line
 */
-double	raycast(t_cub *c)
+double	render_walls(t_cub *c, int x)
 {
 
 	c->math->wall_found = false;
-	init_raycast(c);
+	init_raycast(c, x);
 	calculate_stepxy(c);
 	raycast_on_grid_lines(c);
 	if (c->math->wall_found)

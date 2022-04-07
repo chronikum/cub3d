@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/07 17:33:59 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/07 17:59:38 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ CONTROLS = ./src/controls/keyhandler.c
 
 CLEARDATA =	./src/clear_data/clear_data.c
 
-RENDERING = ./src/rendering/render_preparing.c
+RENDERING =	./src/rendering/render_preparing.c \
+			./src/rendering/render_walls.c
 
 TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c
