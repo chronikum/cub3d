@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/07 17:05:12 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/07 17:16:38 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,17 @@ GNL		=	./src/gnl/get_next_line.c \
 
 UTILS =		./src/utils/build_charmap.c
 
+CONTROLS = ./src/controls/keyhandler.c
+
 CLEARDATA =	./src/clear_data/clear_data.c
 
+RENDERING = ./src/rendering/render_preparing.c
 
-SRCS = $(PARSING) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
+TEXTURES =	./src/textures/textures.c \
+			./src/textures/new_texture.c
+
+
+SRCS = $(PARSING) $(RENDERING) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
 
 PRINT_HEADER	=		echo "                     ";echo "			         _   ___   _ ";echo "			 ___ _ _| |_|_  |_| |";echo "			|  _| | | . |_  | . |";echo "			|___|___|___|___|___|";echo "                     ";
 

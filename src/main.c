@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:24:17 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 16:40:01 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 17:18:19 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int	main(int argc, char **argv)
 	cub = check_file_content(argv[1]);
 	if (cub == NULL)
 		exit(EXIT_FAILURE);
+	start_cub3d(cub);
 	return (0);
 }

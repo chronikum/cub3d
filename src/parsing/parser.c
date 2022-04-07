@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 16:39:05 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 17:08:02 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	init_data(t_cub *cub)
 *	Read the file
 *	Verify the content
 *	Store the data
+*	Builds the char map used later
 */
 
 t_cub	*get_data(int fd, char *read, t_cub *cub)

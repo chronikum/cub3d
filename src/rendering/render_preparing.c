@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render_preparing.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
+/*   Updated: 2022/04/07 17:17:39 by jfritz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../inc/cub3d.h" 
+
+/**
+ * Creates a window, creates mlx variables, loads the textures, setup hooks and loops
+ */
+static void	create_window(t_cub *cub)
+{
+	cub->vars.mlx = mlx_init();
+	cub->vars.win = mlx_new_window(cub->vars.mlx, WIDTH, HEIGHT, "CUB3D");
+	if (!load_textures(cub))
+		exit(EXIT_FAILURE);
+	mlx_mouse_hide();
+	mlx_hook(cub->vars.win, 2, 1L << 0, key_handler, cub);
+	mlx_hook(cub->vars.win, 3, 1L << 0, key_up, cub);
+	// mlx_hook(cub->vars.win, 4, 1L << 2, fov_handler, cub);
+	// mlx_loop_hook(cub->vars.mlx, render, cub);
+	mlx_loop(cub->vars.mlx);
+}
+
+/**
+ * Starts cub3d
+ */
+void	start_cub3d(t_cub *cub)
+{
+	create_window(cub);
+}

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 17:03:12 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 17:17:55 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,9 @@ typedef struct s_line {
 }	t_line;
 
 
+// Start cub3d
+void		start_cub3d(t_cub *cub);
+
 // PARSING
 
 t_cub		*get_data(int fd, char *read, t_cub *cub);
@@ -189,6 +192,19 @@ t_map_data	*ft_data_new_data(char *string);
 void		ft_data_append_data(t_map_data **lst, t_map_data *new);
 int			ft_lst_data_count(t_map_data *head);
 void		build_2d_charmap(t_cub *cub);
+
+
+// Key Handler
+int			key_up(int keycode, t_cub *cub);
+int			key_handler(int keycode, t_cub *cub);
+
+// RENDERING
+
+
+// TEXTURES
+
+bool		load_textures(t_cub *cub);
+t_texture	*new_texture(void *img_ptr, t_cub *cub);
 
 
 // CLEAR DATA
