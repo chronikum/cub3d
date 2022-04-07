@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/07 17:59:38 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/07 18:16:07 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ PARSING =	./src/parsing/identifiers.c \
 			./src/parsing/lst.c \
 			./src/parsing/map.c \
 			./src/parsing/parser.c \
+			./src/parsing/spawn_player.c
 
 GNL		=	./src/gnl/get_next_line.c \
 			./src/gnl/get_next_line_utils.c

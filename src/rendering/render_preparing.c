@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 18:05:47 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 18:17:35 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ int	render_loop(void	*cub)
  */
 static void	create_window(t_cub *cub)
 {
-	cub->movetrigger = initalize_key_trigger();
-	cub->math = xmalloc(sizeof(t_math));
 	cub->vars.mlx = mlx_init();
 	cub->vars.win = mlx_new_window(cub->vars.mlx, WIDTH, HEIGHT, "CUB3D");
+	cub->movetrigger = initalize_key_trigger();
+	cub->math = xmalloc(sizeof(t_math));
+	calculate_player_pos(cub);
 	if (!load_textures(cub))
 		exit(EXIT_FAILURE);
 	mlx_mouse_hide();

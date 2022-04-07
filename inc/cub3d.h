@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 18:02:39 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 18:15:24 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,6 +200,9 @@ void		ft_data_append_data(t_map_data **lst, t_map_data *new);
 int			ft_lst_data_count(t_map_data *head);
 void		build_2d_charmap(t_cub *cub);
 
+
+// spawms player
+void		calculate_player_pos(t_cub *cub);
 
 // Key Handler
 int			key_up(int keycode, t_cub *cub);

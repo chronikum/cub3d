@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:32:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 18:05:01 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 18:14:47 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	clear_data(t_cub *cub)
 	free_map_lst(cub);
 	free(cub->movetrigger);
 	free(cub->math);
+	free(cub->player);
 	data_tofree = cub->map_data;
 	while (data_tofree != NULL)
 	{
