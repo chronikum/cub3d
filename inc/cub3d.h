@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 18:15:24 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 19:00:12 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,10 @@ char	get_node_value_at(t_cub *cub, int row, int column);
 // Put pixel at positoon x and y
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
+
+// create vector
+t_vec2	*create_vector(double x, double y);
+
 // PARSING
 
 t_cub		*get_data(int fd, char *read, t_cub *cub);
@@ -211,6 +215,7 @@ int			key_handler(int keycode, t_cub *cub);
 // RENDERING
 
 double		render_walls(t_cub *c, int x);
+int			draw_line_color(t_cub *cub, t_vec2 *v1, t_vec2 *v0, int color);
 
 // TEXTURES
 

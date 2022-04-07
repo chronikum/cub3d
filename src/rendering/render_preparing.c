@@ -6,22 +6,24 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 18:17:35 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 19:04:49 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h" 
 
 
-int	render_loop(void	*cub)
+int	render_loop(void	*cub_)
 {
-	int x;
+	int		x;
+	t_cub	*cub;
 
+	cub = (t_cub *) cub_;
 	x = 0;
 	while (x < (int)WIDTH)
 	{
-		double raycast = render_walls(cub, x);
-		(void) raycast;
+		render_walls(cub, x);
+		draw_line_color(cub, create_vector(x, cub->math->drawStart), create_vector(x, cub->math->drawEnd), 8355711);
 		x++;
 	}
 

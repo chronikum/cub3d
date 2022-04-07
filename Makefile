@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/07 18:16:07 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/07 19:00:28 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,14 +38,16 @@ GNL		=	./src/gnl/get_next_line.c \
 			./src/gnl/get_next_line_utils.c
 
 UTILS =		./src/utils/build_charmap.c \
-			./src/utils/put_pixel.c
+			./src/utils/put_pixel.c \
+			./src/utils/create_vector2.c
 
 CONTROLS = ./src/controls/keyhandler.c
 
 CLEARDATA =	./src/clear_data/clear_data.c
 
 RENDERING =	./src/rendering/render_preparing.c \
-			./src/rendering/render_walls.c
+			./src/rendering/render_walls.c \
+			./src/rendering/draw_line_color.c
 
 TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c
