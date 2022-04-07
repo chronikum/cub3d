@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/07 17:16:38 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/07 17:24:17 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ PARSING =	./src/parsing/identifiers.c \
 GNL		=	./src/gnl/get_next_line.c \
 			./src/gnl/get_next_line_utils.c
 
-UTILS =		./src/utils/build_charmap.c
+UTILS =		./src/utils/build_charmap.c \
+			./src/utils/put_pixel.c
 
 CONTROLS = ./src/controls/keyhandler.c
 

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 17:17:39 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 17:29:45 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 /**
  * Creates a window, creates mlx variables, loads the textures, setup hooks and loops
+ * Sets initial key controls too
  */
 static void	create_window(t_cub *cub)
 {
+	cub->movetrigger = initalize_key_trigger();
 	cub->vars.mlx = mlx_init();
 	cub->vars.win = mlx_new_window(cub->vars.mlx, WIDTH, HEIGHT, "CUB3D");
 	if (!load_textures(cub))

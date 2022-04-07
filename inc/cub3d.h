@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 17:17:55 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 17:29:30 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,8 +172,12 @@ typedef struct s_line {
 }	t_line;
 
 
-// Start cub3d
-void		start_cub3d(t_cub *cub);
+// Preparation and starting cub3d
+void			start_cub3d(t_cub *cub);
+t_move_trigger	*initalize_key_trigger();
+
+// Put pixel at positoon x and y
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // PARSING
 

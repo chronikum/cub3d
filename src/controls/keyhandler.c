@@ -6,11 +6,29 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 11:24:05 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 17:10:34 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/07 17:29:24 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
+
+/**
+ * Initializes move trigger for cub3d struct
+ */
+t_move_trigger	*initalize_key_trigger()
+{
+	t_move_trigger	*move_trigger;
+
+	move_trigger = xmalloc(sizeof(move_trigger));
+	move_trigger->is_moving_up = false;
+	move_trigger->is_moving_down = false;
+	move_trigger->is_moving_left = false;
+	move_trigger->is_moving_right = false;
+	move_trigger->is_rotating_left = false;
+	move_trigger->is_rotating_right = false;
+
+	return (move_trigger);
+}
 
 /*	Event hook to close the window with ESCAPE */
 static void	close_window(t_cub *cub)
