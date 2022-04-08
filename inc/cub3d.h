@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/08 17:48:02 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 18:08:38 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,6 +235,7 @@ bool		is_player_in_cache(t_cub *cub);
 bool		load_textures(t_cub *cub);
 t_texture	*new_texture(void *img_ptr, t_cub *cub);
 void		fill_floor_ceiling(t_cub *cub, int x);
+int			distance_color(int c, double d);
 
 // MINIMAP
 

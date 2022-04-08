@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/08 14:56:13 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/08 18:08:53 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ CLEARDATA =	./src/clear_data/clear_data.c
 
 RENDERING =	./src/rendering/render_preparing.c \
 			./src/rendering/render_walls.c \
-			./src/rendering/draw_line_color.c
+			./src/rendering/draw_line_color.c \
+			./src/textures/shading.c
 
 TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c \

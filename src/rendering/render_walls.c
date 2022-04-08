@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 17:27:43 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 18:18:08 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,10 @@ void	raycast_on_grid_lines(t_cub *c)
 		c->math->drawEnd = (int) HEIGHT - 1;
 }
 
+/**
+ * Writes every pixel in a buffer which we will later print on screen.
+ * Also adds distance shading
+ */
 void	write_in_mlx_buffer(t_cub *cub, int x, int y)
 {
 	while (y < cub->math->drawEnd)
@@ -113,7 +117,7 @@ void	write_in_mlx_buffer(t_cub *cub, int x, int y)
 				= cub->tex_ea->texture_data[64 * cub->math->texY + cub->math->texX]; // Choose texture for pixel here later
 		if (cub->math->side == 1)
 			cub->math->texColor = (cub->math->texColor >> 1) & 8355711; // Darken sides
-		cub->math->buff[y][x] = cub->math->texColor;
+		cub->math->buff[y][x] = distance_color(cub->math->texColor, (cub->math->perpWallDist / 10));
 		y++;
 	}
 }
