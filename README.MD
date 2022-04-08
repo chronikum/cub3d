@@ -9,3 +9,4 @@ Missing:
 - Minimap needs to be corrected
 - Fix map parsing
 - If we want really cool and correct shading, we need to implement floor raycasting (https://lodev.org/cgtutor/raycasting2.html)
+- Fix leaks
