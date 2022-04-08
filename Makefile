@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/08 14:15:04 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/08 14:56:13 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,9 @@ CACHE	=	./src/cache/player_cache.c
 
 MINIMAP	=	./src/minimap/minimap.c
 
-MOVEMENT	=	./src/movement/movement.c
+MOVEMENT	=	./src/movement/movement.c \
+				./src/movement/rotation.c
+
 
 FRAMES_PER_SECOND = ./src/utils/frames_per_second.c
 

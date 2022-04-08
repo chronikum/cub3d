@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 14:13:38 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 15:25:36 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  */
 void	init_raycast(t_cub *c, int x)
 {
-    c->math->cameraX = 2 * x / WIDTH - 1; //x-coordinate in camera space // x is ithe iteration value, w describes the WIDTH
+    c->math->cameraX = 2 * x / (double) WIDTH - 1; //x-coordinate in camera space // x is ithe iteration value, w describes the WIDTH
 	c->math->rayDirX = c->math->dirX + c->math->planeX * c->math->cameraX;
 	c->math->rayDirY = c->math->dirY + c->math->planeY * c->math->cameraX;
 	c->math->deltaDistX = (c->math->rayDirX == 0) ? 1e30 : fabs(1 / c->math->rayDirX);
@@ -46,7 +46,7 @@ void	calculate_stepxy(t_cub *c)
 	else
 	{
 		c->math->stepX = 1;
-		c->math->sideDistX = ((c->math->mapX + 1) - c->player->x)
+		c->math->sideDistX = ((c->math->mapX + 1.0) - c->player->x)
 			* c->math->deltaDistX;
 	}
 	if (c->math->rayDirY < 0)
@@ -57,7 +57,7 @@ void	calculate_stepxy(t_cub *c)
 	else
 	{
 		c->math->stepY = 1;
-		c->math->sideDistY = ((c->math->mapY + 1) - c->player->y)
+		c->math->sideDistY = ((c->math->mapY + 1.0) - c->player->y)
 			* c->math->deltaDistY;
 	}
 }

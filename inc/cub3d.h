@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/08 14:14:44 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 14:56:42 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,6 +242,8 @@ void		render_minimap(t_cub *cub);
 
 // MOVEMENT
 void		move(t_cub *cub);
+void		rotate_right(t_cub *cub);
+void		rotate_left(t_cub *cub);
 
 
 // CLEAR DATA

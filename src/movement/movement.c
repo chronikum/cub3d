@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 13:14:10 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 13:54:25 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 14:59:40 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	move_right(t_cub *cub)
  */
 void	move(t_cub *cub)
 {
-	printf("PLAYER POSITION: %f %f \n", cub->player->x, cub->player->y);
 	if (cub->movetrigger->is_moving_up)
 		move_forward(cub);
 	if (cub->movetrigger->is_moving_down)
@@ -88,4 +87,8 @@ void	move(t_cub *cub)
 		move_left(cub);
 	if (cub->movetrigger->is_moving_right)
 		move_right(cub);
+	if (cub->movetrigger->is_rotating_left)
+		rotate_left(cub);
+	if (cub->movetrigger->is_rotating_right)
+		rotate_right(cub);
 }
