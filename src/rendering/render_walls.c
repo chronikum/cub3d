@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 18:18:08 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 18:36:54 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,6 @@ void	raycast_on_grid_lines(t_cub *c)
 			c->math->mapY += c->math->stepY;
 			c->math->side = 1;
 		}
-		if (c->math->perpWallDist < 50)
-			my_mlx_pixel_put(&c->data, c->math->mapX, c->math->mapY,
-				13734333);
 		if (get_node_value_at(c, c->math->mapY, c->math->mapX) == '1')
 			c->math->wall_found = true;
 	}
