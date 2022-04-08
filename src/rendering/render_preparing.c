@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 17:39:11 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 17:50:13 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	mlx_draw_imagegiven(t_cub *cub)
 		while (x < WIDTH)
 		{
 			cub->data.addr[y * (int)WIDTH + x] = cub->math->buff[y][x];
-			// printf("Filling up %d %d\n", x, y);
 			x++;
 		}
 		y++;
@@ -83,6 +82,16 @@ int	render_loop(void	*cub_)
 }
 
 /**
+ * Move and rot speed are being set here
+ */
+void	set_moverot_speeds(t_cub *cub)
+{
+	cub->math->frame_time = (24) / 1000.0;
+	cub->math->moveSpeed = cub->math->frame_time * 5.0;
+	cub->math->rotSpeed = cub->math->frame_time * 3.0;
+}
+
+/**
  * Creates a window, creates mlx variables, loads the textures, setup hooks and loops
  * Sets initial key controls too
  */
@@ -92,7 +101,7 @@ static void	create_window(t_cub *cub)
 	cub->vars.win = mlx_new_window(cub->vars.mlx, WIDTH, HEIGHT, "CUB3D");
 	cub->movetrigger = initalize_key_trigger();
 	cub->math = xmalloc(sizeof(t_math));
-	cub->math->rotSpeed = 0.5;
+	set_moverot_speeds(cub);
 	calculate_player_pos(cub);
 	if (!load_textures(cub))
 		exit(EXIT_FAILURE);
