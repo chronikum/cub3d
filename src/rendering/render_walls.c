@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 16:20:58 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 17:27:43 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,6 @@ void	draw_textures(t_cub *cub, int x)
 */
 double	render_walls(t_cub *c, int x)
 {
-
 	c->math->wall_found = false;
 	init_raycast(c, x);
 	calculate_stepxy(c);

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 16:24:15 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 17:39:11 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	mlx_draw_imagegiven(t_cub *cub)
 		while (x < WIDTH)
 		{
 			cub->data.addr[y * (int)WIDTH + x] = cub->math->buff[y][x];
+			// printf("Filling up %d %d\n", x, y);
 			x++;
 		}
 		y++;
@@ -49,7 +50,7 @@ void	destroy_mlx_image(t_cub *cub)
 void	create_mlx_data(t_cub *cub)
 {
 	cub->data.img = mlx_new_image(cub->vars.mlx, WIDTH, HEIGHT);
-	cub->data.addr = mlx_get_data_addr(cub->data.img, &cub->data.bits_per_pixel,
+	cub->data.addr = (int *) mlx_get_data_addr(cub->data.img, &cub->data.bits_per_pixel,
 			&cub->data.line_length, &cub->data.endian);
 }
 
