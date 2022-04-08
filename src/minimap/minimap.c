@@ -6,11 +6,38 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:55:05 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 12:58:51 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 13:53:13 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h" 
+
+
+/**
+ * Draws the player in the minimap
+ */
+void	draw_player(t_cub *cub)
+{
+	int	x;
+	int	y;
+	int	player_eight;
+
+	player_eight = (PLAYER_MINIMAP_SIZE / 8);
+	x = cub->player->x - player_eight;
+	y = cub->player->y - player_eight;
+	while (y < cub->player->y + player_eight)
+	{
+		while (x < cub->player->x + player_eight)
+		{
+			if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
+				my_mlx_pixel_put(&cub->data, x, y, 17010801);
+			x++;
+		}
+		x = cub->player->y - player_eight;
+		y++;
+	}
+}
+
 
 /**
  * Draws squares in the minimap
@@ -88,4 +115,5 @@ void	render_minimap(t_cub *cub)
 		old_y = node->y;
 		node = node->next;
 	}
+	draw_player(cub);
 }

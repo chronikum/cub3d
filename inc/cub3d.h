@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/08 13:09:17 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 14:14:44 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ typedef struct s_map_data {
 	int		width;
 	int		height;
 	char	*texture_ptr;
+	int		*texture_data;
+	int		*texture;
 	int		bpp;
 	int		line_size;
 	int		endian;
@@ -126,6 +128,15 @@ typedef struct s_math {
 	double		oldPlaneX;
 	double		spritePosX;
 	double		spritePosY;
+	
+	int			buff[1920][1080];
+	int			**texture;
+	double		wallX;
+	int			texX;
+	double		step;
+	double		texPos;
+	int			texY;
+	int			texColor;
 }	t_math;
 
 
@@ -223,10 +234,14 @@ bool		is_player_in_cache(t_cub *cub);
 
 bool		load_textures(t_cub *cub);
 t_texture	*new_texture(void *img_ptr, t_cub *cub);
+void		fill_floor_ceiling(t_cub *cub, int x);
 
 // MINIMAP
 
 void		render_minimap(t_cub *cub);
+
+// MOVEMENT
+void		move(t_cub *cub);
 
 
 // CLEAR DATA

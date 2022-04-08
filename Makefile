@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/08 12:56:02 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/08 14:15:04 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,16 +50,19 @@ RENDERING =	./src/rendering/render_preparing.c \
 			./src/rendering/draw_line_color.c
 
 TEXTURES =	./src/textures/textures.c \
-			./src/textures/new_texture.c
+			./src/textures/new_texture.c \
+			./src/textures/fill_floor_ceiling.c
 			
 CACHE	=	./src/cache/player_cache.c
 
 MINIMAP	=	./src/minimap/minimap.c
 
+MOVEMENT	=	./src/movement/movement.c
+
 FRAMES_PER_SECOND = ./src/utils/frames_per_second.c
 
 
-SRCS = $(PARSING) $(CACHE) $(MINIMAP) $(RENDERING) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
+SRCS = $(PARSING) $(CACHE) $(MOVEMENT) $(MINIMAP) $(RENDERING) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
 
 BONUS = $(FRAMES_PER_SECOND)
 

@@ -6,11 +6,33 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 13:09:23 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 14:19:19 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h" 
+
+/**
+ * Loads and displays the image from the buffer
+ */
+void	mlx_draw_imagegiven(t_cub *cub)
+{
+	int x;
+	int y;
+	
+	x = 0;
+	y = 0;
+	while (y < HEIGHT)
+	{
+		x = 0;
+		while (x < WIDTH)
+		{
+			cub->data.addr[y * (int)WIDTH + x] = cub->math->buff[y][x];
+			x++;
+		}
+		y++;
+	}
+}
 
 /**
  * Gets called when a new image is being displayed
@@ -45,6 +67,7 @@ int	render_loop(void	*cub_)
 
 	x = 0;
 	cub = (t_cub *) cub_;
+	move(cub);
 	// if (is_player_in_cache(cub))
 	// 	return (0);
 	create_mlx_data(cub);
@@ -52,13 +75,11 @@ int	render_loop(void	*cub_)
 	end_vector = create_vector(x, cub->math->drawEnd);
 	while (x < WIDTH)
 	{
+		fill_floor_ceiling(cub, x);
 		render_walls(cub, x);
-		uvec(start_vector, x, cub->math->drawStart);
-		uvec(end_vector, x, cub->math->drawEnd);
-		printf("Startvector %d %f to Endvector %d %f\n", x, cub->math->drawStart, x, cub->math->drawEnd);
-		draw_line_color(cub, end_vector, start_vector, 8355711);
 		x++;
 	}
+	mlx_draw_imagegiven(cub);
 	render_minimap(cub);
 	destroy_mlx_image(cub);
 	free(end_vector);
