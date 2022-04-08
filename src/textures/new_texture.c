@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:55:56 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 16:10:15 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 16:26:31 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ t_texture	*new_texture(void *img_ptr, t_cub *cub)
 		&texture->endian);
 	texture->texture = xmalloc(sizeof(int) * 64 * 64);
 	texture->texture_data = (int *) texture->texture_ptr;
+	texture->width = 64;
+	texture->height = 64;
 	prepare_texture_data(texture);
-	texture->bpp /= 8;
-	texture->width = texture->line_size / texture->bpp;
-	texture->height = texture->line_size / texture->bpp;
 	printf("Texture size: %d\n", texture->width);
 	return (texture);
 }
