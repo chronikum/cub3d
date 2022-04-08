@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/08 14:56:42 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 16:03:09 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define WIDTH						1920
 # define HEIGHT						1080
 # define TILESIZE					10
-# define PLAYER_MINIMAP_SIZE			5
+# define PLAYER_MINIMAP_SIZE		5
 # define MINIMAP_RAY_COLOR			55555
 # define MINIMAP_HEIGHT				400
 # define MINIMAP_WIDTH				680
@@ -129,7 +129,7 @@ typedef struct s_math {
 	double		spritePosX;
 	double		spritePosY;
 	
-	int			buff[1920][1080];
+	int			buff[HEIGHT][WIDTH];
 	int			**texture;
 	double		wallX;
 	int			texX;

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 15:35:08 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 15:46:52 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int	render_loop(void	*cub_)
 	x = 0;
 	cub = (t_cub *) cub_;
 	move(cub);
-	if (is_player_in_cache(cub))
-		return (0);
+	// if (is_player_in_cache(cub))
+	// 	return (0);
 	create_mlx_data(cub);
 	while (x < WIDTH)
 	{
@@ -91,7 +91,7 @@ static void	create_window(t_cub *cub)
 	cub->vars.win = mlx_new_window(cub->vars.mlx, WIDTH, HEIGHT, "CUB3D");
 	cub->movetrigger = initalize_key_trigger();
 	cub->math = xmalloc(sizeof(t_math));
-	cub->math->rotSpeed = 3.0;
+	cub->math->rotSpeed = 0.5;
 	calculate_player_pos(cub);
 	if (!load_textures(cub))
 		exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 15:25:36 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 16:15:21 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,18 +92,15 @@ void	raycast_on_grid_lines(t_cub *c)
 	else
 		c->math->perpWallDist = (c->math->sideDistY - c->math->deltaDistY);
 	
-	
-	
-	
 	c->math->lineHeight = (int)(HEIGHT / c->math->perpWallDist);
 	c->math->drawStart
-		= -c->math->lineHeight / 2 + (int)HEIGHT / 2;
+		= -c->math->lineHeight / 2 + (int) HEIGHT / 2;
 	if (c->math->drawStart < 0)
 		c->math->drawStart = 0;
 	c->math->drawEnd
 		= c->math->lineHeight / 2 + (int)HEIGHT / 2;
-	if (c->math->drawEnd >= (int)HEIGHT)
-		c->math->drawEnd = (int)HEIGHT - 1;
+	if (c->math->drawEnd >= (int) HEIGHT)
+		c->math->drawEnd = (int) HEIGHT - 1;
 }
 
 void	write_in_mlx_buffer(t_cub *cub, int x, int y)
@@ -136,7 +133,7 @@ void	draw_textures(t_cub *cub, int x)
 			= cub->math->posX + cub->math->perpWallDist * cub->math->rayDirX;
 	}
 	cub->math->wallX -= floor(cub->math->wallX);
-	cub->math->texX = (int)(cub->math->wallX * ((double)64));
+	cub->math->texX = (int)(cub->math->wallX * ((double) 64));
 	if (cub->math->side == 0 && cub->math->rayDirX > 0)
 		cub->math->texX = 64 - cub->math->texX - 1;
 	if (cub->math->side == 1 && cub->math->rayDirY < 0)

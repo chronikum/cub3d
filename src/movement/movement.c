@@ -6,13 +6,13 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 13:14:10 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 14:59:40 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 16:00:00 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h" 
 
-# define MOVESPEED 0.2
+# define MOVESPEED 1
 
 /**
  * Moves forward if possible
