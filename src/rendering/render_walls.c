@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 19:10:35 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 13:07:26 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,15 @@ void	raycast_on_grid_lines(t_cub *c)
 // 	cub->line_to_draw[incrementer] = -1;
 // }
 
+void	calculate_drawstart_andend(t_cub *c)
+{
+	c->math->lineHeight = (int)(HEIGHT / c->math->perpWallDist);
+	c->math->drawStart = -c->math->lineHeight / 2 + HEIGHT / 2;
+	if(c->math->drawStart < 0) c->math->drawStart = 0;
+	c->math->drawEnd = c->math->lineHeight / 2 + HEIGHT / 2;
+	if(c->math->drawEnd >= c->math->lineHeight) c->math->drawEnd = HEIGHT - 1;
+}
+
 /*
 	Draws a raycast line and returns the distance to the wall
 	Takes x as the current vertical pixel line
@@ -151,6 +160,7 @@ double	render_walls(t_cub *c, int x)
 	init_raycast(c, x);
 	calculate_stepxy(c);
 	raycast_on_grid_lines(c);
+	calculate_drawstart_andend(c);
 	if (c->math->wall_found)
 		return (c->math->perpWallDist);
 	else

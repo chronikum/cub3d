@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 12:48:47 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 13:09:23 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,21 @@ int	render_loop(void	*cub_)
 
 	x = 0;
 	cub = (t_cub *) cub_;
-	if (is_player_in_cache(cub))
-		return (0);
+	// if (is_player_in_cache(cub))
+	// 	return (0);
 	create_mlx_data(cub);
 	start_vector = create_vector(x, cub->math->drawStart);
 	end_vector = create_vector(x, cub->math->drawEnd);
-	while (x < (int)WIDTH)
+	while (x < WIDTH)
 	{
 		render_walls(cub, x);
-		draw_line_color(cub, start_vector, end_vector, 8355711);
+		uvec(start_vector, x, cub->math->drawStart);
+		uvec(end_vector, x, cub->math->drawEnd);
+		printf("Startvector %d %f to Endvector %d %f\n", x, cub->math->drawStart, x, cub->math->drawEnd);
+		draw_line_color(cub, end_vector, start_vector, 8355711);
 		x++;
 	}
+	render_minimap(cub);
 	destroy_mlx_image(cub);
 	free(end_vector);
 	free(start_vector);

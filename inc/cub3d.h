@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/08 12:39:08 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 13:09:17 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,8 +183,9 @@ char	get_node_value_at(t_cub *cub, int row, int column);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 
-// create vector
+// Vector logic
 t_vec2	*create_vector(double x, double y);
+void	uvec(t_vec2 *vector, double x, double y);
 
 // PARSING
 
@@ -222,6 +223,10 @@ bool		is_player_in_cache(t_cub *cub);
 
 bool		load_textures(t_cub *cub);
 t_texture	*new_texture(void *img_ptr, t_cub *cub);
+
+// MINIMAP
+
+void		render_minimap(t_cub *cub);
 
 
 // CLEAR DATA
