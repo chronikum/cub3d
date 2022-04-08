@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/07 19:00:28 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/08 12:39:32 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,13 +51,15 @@ RENDERING =	./src/rendering/render_preparing.c \
 
 TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c
+			
+CACHE	=	./src/cache/player_cache.c
 
 # BONUS STUFF
 
 FRAMES_PER_SECOND = ./src/utils/frames_per_second.c
 
 
-SRCS = $(PARSING) $(RENDERING) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
+SRCS = $(PARSING) $(CACHE) $(RENDERING) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
 
 BONUS = $(FRAMES_PER_SECOND)
 

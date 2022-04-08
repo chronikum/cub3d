@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 18:57:47 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 18:58:53 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 12:47:40 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,5 @@ int	draw_line_color(t_cub *cub, t_vec2 *v1, t_vec2 *v0, int color)
 		v0->y += yinc;
 		i++;
 	}
-	free(v1);
-	free(v0);
 	return (-1);
 }

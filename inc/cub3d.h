@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 19:00:12 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 12:39:08 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,6 +216,7 @@ int			key_handler(int keycode, t_cub *cub);
 
 double		render_walls(t_cub *c, int x);
 int			draw_line_color(t_cub *cub, t_vec2 *v1, t_vec2 *v0, int color);
+bool		is_player_in_cache(t_cub *cub);
 
 // TEXTURES
 

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 17:08:02 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/08 12:28:03 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ t_cub	*check_file_content(char *file)
 	t_cub	*cub;
 
 	fd = open(file, O_RDONLY);
-	cub = NULL;
 	if (fd < 0)
 	{
 		ft_putendl_fd("Corrupted file (open)", 2);
