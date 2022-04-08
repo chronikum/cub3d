@@ -7,3 +7,4 @@ Missing:
 - Doors (available in first attempt)
 - Animations
 - Minimap needs to be corrected
+- Fix map parsing
