@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:13:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 15:24:12 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:19:35 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	write_in_mlx_buffer(t_cub *cub, int x, int y)
 		cub->math->texColor
 			= get_text_dir(cub)->texture_data[64
 			* cub->math->texY + cub->math->texX];
-		if (cub->math->side == 1)
-			cub->math->texColor = (cub->math->texColor >> 1) & 8355711;
 		cub->math->buff[y][x] = distance_color(cub->math->texColor,
 				(cub->math->perpWallDist / 10));
 		y++;
