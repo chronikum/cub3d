@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 20:30:46 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 20:41:46 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ typedef struct s_math {
 	double		deltaDistX;
 	double		deltaDistY;
 	double		perpWallDist;
-	double		frame_time;
 	double		moveSpeed;
 	double		rotSpeed;
 	double		oldDirX;
