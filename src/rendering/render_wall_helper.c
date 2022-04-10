@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:13:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 19:19:35 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 20:19:42 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	draw_textures(t_cub *cub, int x)
 	else
 	{
 		cub->math->wallX
-			= cub->math->posX + cub->math->perpWallDist * cub->math->rayDirX;
+			= cub->player->x + cub->math->perpWallDist * cub->math->rayDirX;
 	}
 	cub->math->wallX -= floor(cub->math->wallX);
 	cub->math->texX = (int)(cub->math->wallX * ((double) 64));
@@ -60,4 +60,5 @@ void	draw_textures(t_cub *cub, int x)
 			/ 2 + cub->math->lineHeight / 2) * cub->math->step;
 	y_helper = cub->math->drawStart;
 	write_in_mlx_buffer(cub, x, y_helper);
+	cub->math->dBuffer[x] = cub->math->perpWallDist;
 }

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 19:08:48 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 20:11:16 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ typedef struct s_math {
 	double		spritePosX;
 	double		spritePosY;
 	int			buff[HEIGHT][WIDTH];
+	int			dBuffer[WIDTH];
 	int			**texture;
 	double		wallX;
 	int			texX;
