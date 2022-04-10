@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:55:56 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 15:00:30 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:01:27 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ t_texture	*new_texture(void *img_ptr)
 	t_texture	*texture;
 
 	texture = xmalloc(sizeof(t_texture));
-	texture->texture_ptr = mlx_get_data_addr(img_ptr, &texture->bpp, &texture->line_size,
-		&texture->endian);
+	texture->texture_ptr = mlx_get_data_addr(img_ptr, &texture->bpp,
+			&texture->line_size, &texture->endian);
 	texture->texture = xmalloc(sizeof(int) * 64 * 64);
 	texture->texture_data = (int *) texture->texture_ptr;
 	texture->width = 64;
