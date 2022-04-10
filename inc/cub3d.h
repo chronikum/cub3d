@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 15:08:48 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:17:25 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,6 +238,7 @@ t_texture	*new_texture(void *img_ptr);
 void		fill_floor_ceiling(t_cub *cub, int x);
 int			distance_color(int c, double d);
 t_texture	*get_text_dir(t_cub *cub);
+void		draw_textures(t_cub *cub, int x);
 
 // MINIMAP
 
@@ -251,6 +252,9 @@ void		rotate_left(t_cub *cub);
 
 // CLEAR DATA
 int	clear_data(t_cub *cub);
+
+// UTILS
+double	ternary_double(bool statement, double is_true, double is_false);
 
 
 #endif

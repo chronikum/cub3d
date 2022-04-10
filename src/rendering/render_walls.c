@@ -6,22 +6,40 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 14:47:55 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:22:10 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
 /**
+ * Calculate lineHeight, drawStart and drawEnd
+ */
+void	calculate_line_height_drawstartend(t_cub *c)
+{
+	c->math->lineHeight = (int)(HEIGHT / c->math->perpWallDist);
+	c->math->drawStart
+		= -c->math->lineHeight / 2 + (int) HEIGHT / 2;
+	if (c->math->drawStart < 0)
+		c->math->drawStart = 0;
+	c->math->drawEnd
+		= c->math->lineHeight / 2 + (int)HEIGHT / 2;
+	if (c->math->drawEnd >= (int) HEIGHT)
+		c->math->drawEnd = (int) HEIGHT - 1;
+}
+
+/**
  * Inits and builds the raycaster helper struct
  */
 void	init_raycast(t_cub *c, int x)
 {
-    c->math->cameraX = 2 * x / (double) WIDTH - 1; //x-coordinate in camera space // x is ithe iteration value, w describes the WIDTH
+	c->math->cameraX = 2 * x / (double) WIDTH - 1;
 	c->math->rayDirX = c->math->dirX + c->math->planeX * c->math->cameraX;
 	c->math->rayDirY = c->math->dirY + c->math->planeY * c->math->cameraX;
-	c->math->deltaDistX = (c->math->rayDirX == 0) ? 1e30 : fabs(1 / c->math->rayDirX);
-	c->math->deltaDistY = (c->math->rayDirY == 0) ? 1e30 : fabs(1 / c->math->rayDirY);
+	c->math->deltaDistX = ternary_double((c->math->rayDirX == 0),
+			1e30, fabs(1 / c->math->rayDirX));
+	c->math->deltaDistY = ternary_double((c->math->rayDirY == 0),
+			1e30, fabs(1 / c->math->rayDirY));
 	c->math->mapX = (int)c->player->x;
 	c->math->mapY = (int)c->player->y;
 	c->math->stepX = 0;
@@ -41,7 +59,8 @@ void	calculate_stepxy(t_cub *c)
 	if (c->math->rayDirX < 0)
 	{
 		c->math->stepX = -1;
-		c->math->sideDistX = (c->player->x - c->math->mapX) * c->math->deltaDistX;
+		c->math->sideDistX = (c->player->x - c->math->mapX)
+			* c->math->deltaDistX;
 	}
 	else
 	{
@@ -52,7 +71,8 @@ void	calculate_stepxy(t_cub *c)
 	if (c->math->rayDirY < 0)
 	{
 		c->math->stepY = -1;
-		c->math->sideDistY = (c->player->y - c->math->mapY) * c->math->deltaDistY;
+		c->math->sideDistY = (c->player->y - c->math->mapY)
+			* c->math->deltaDistY;
 	}
 	else
 	{
@@ -84,67 +104,11 @@ void	raycast_on_grid_lines(t_cub *c)
 		if (get_node_value_at(c, c->math->mapY, c->math->mapX) == '1')
 			c->math->wall_found = true;
 	}
-	if(c->math->side == 0)
+	if (c->math->side == 0)
 		c->math->perpWallDist = (c->math->sideDistX - c->math->deltaDistX);
 	else
 		c->math->perpWallDist = (c->math->sideDistY - c->math->deltaDistY);
-	
-	c->math->lineHeight = (int)(HEIGHT / c->math->perpWallDist);
-	c->math->drawStart
-		= -c->math->lineHeight / 2 + (int) HEIGHT / 2;
-	if (c->math->drawStart < 0)
-		c->math->drawStart = 0;
-	c->math->drawEnd
-		= c->math->lineHeight / 2 + (int)HEIGHT / 2;
-	if (c->math->drawEnd >= (int) HEIGHT)
-		c->math->drawEnd = (int) HEIGHT - 1;
-}
-
-/**
- * Writes every pixel in a buffer which we will later print on screen.
- * Also adds distance shading
- */
-void	write_in_mlx_buffer(t_cub *cub, int x, int y)
-{
-	while (y < cub->math->drawEnd)
-	{
-		cub->math->texY = (int)cub->math->texPos & (64 - 1);
-		cub->math->texPos += cub->math->step;
-		cub->math->texColor
-				= get_text_dir(cub)->texture_data[64 * cub->math->texY + cub->math->texX];
-		if (cub->math->side == 1)
-			cub->math->texColor = (cub->math->texColor >> 1) & 8355711; // Darken sides
-		cub->math->buff[y][x] = distance_color(cub->math->texColor, (cub->math->perpWallDist / 10));
-		y++;
-	}
-}
-
-void	draw_textures(t_cub *cub, int x)
-{
-	int	y_helper;
-	
-	if (cub->math->side == 0)
-	{
-		cub->math->wallX
-			= cub->player->y + cub->math->perpWallDist * cub->math->rayDirY;
-	}
-	else
-	{
-		cub->math->wallX
-			= cub->math->posX + cub->math->perpWallDist * cub->math->rayDirX;
-	}
-	cub->math->wallX -= floor(cub->math->wallX);
-	cub->math->texX = (int)(cub->math->wallX * ((double) 64));
-	if (cub->math->side == 0 && cub->math->rayDirX > 0)
-		cub->math->texX = 64 - cub->math->texX - 1;
-	if (cub->math->side == 1 && cub->math->rayDirY < 0)
-		cub->math->texX = 64 - cub->math->texX - 1;
-	cub->math->step = 1.0 * 64 / cub->math->lineHeight;
-	cub->math->texPos = (cub->math->drawStart - HEIGHT
-			/ 2 + cub->math->lineHeight / 2) * cub->math->step;
-			
-	y_helper = cub->math->drawStart;
-	write_in_mlx_buffer(cub, x, y_helper);
+	calculate_line_height_drawstartend(c);
 }
 
 /*
