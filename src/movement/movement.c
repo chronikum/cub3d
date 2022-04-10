@@ -6,22 +6,20 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 13:14:10 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 16:00:00 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:09:59 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h" 
-
-# define MOVESPEED 1
 
 /**
  * Moves forward if possible
  */
 void	move_forward(t_cub *cub)
 {
-	double newX;
-	double newY;
-	
+	double	newX;
+	double	newY;
+
 	newX = cub->player->x + cub->math->dirX * MOVESPEED;
 	newY = cub->player->y + cub->math->dirY * MOVESPEED;
 	if (get_node_value_at(cub, newY, newX) != '1')
@@ -31,11 +29,14 @@ void	move_forward(t_cub *cub)
 	}
 }
 
+/**
+ * Moves player backward if no wall
+ */
 void	move_backward(t_cub *cub)
 {
-	double newX;
-	double newY;
-	
+	double	newX;
+	double	newY;
+
 	newX = cub->player->x - cub->math->dirX * MOVESPEED;
 	newY = cub->player->y - cub->math->dirY * MOVESPEED;
 	if (get_node_value_at(cub, newY, newX) != '1')
@@ -45,11 +46,14 @@ void	move_backward(t_cub *cub)
 	}
 }
 
+/**
+ * Move left if no wall
+ */
 void	move_left(t_cub *cub)
 {
-	double newX;
-	double newY;
-	
+	double	newX;
+	double	newY;
+
 	newX = cub->player->x - cub->math->planeX * MOVESPEED;
 	newY = cub->player->y - cub->math->planeY * MOVESPEED;
 	if (get_node_value_at(cub, newY, newX) != '1')
@@ -59,11 +63,14 @@ void	move_left(t_cub *cub)
 	}
 }
 
+/**
+ * Move right if no wall
+ */
 void	move_right(t_cub *cub)
 {
-	double newX;
-	double newY;
-	
+	double	newX;
+	double	newY;
+
 	newX = cub->player->x + cub->math->planeX * MOVESPEED;
 	newY = cub->player->y + cub->math->planeY * MOVESPEED;
 	if (get_node_value_at(cub, newY, newX) != '1')

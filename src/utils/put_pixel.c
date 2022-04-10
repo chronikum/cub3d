@@ -6,12 +6,11 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:23:01 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 17:59:15 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:07:58 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
-
 
 /**
  * Put pixel at coordinate xy with color.

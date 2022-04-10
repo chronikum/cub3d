@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 15:00:09 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:08:48 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define MINIMAP_RAY_COLOR			55555
 # define MINIMAP_HEIGHT				400
 # define MINIMAP_WIDTH				680
+# define MOVESPEED					1
 
 /*----------------------------------------------------------------------*/
 /*							MinilibX Data Struct						*/

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:31:46 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 17:32:05 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:08:25 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ int	render_fps(t_cub *cub, int frames)
 	else
 		mlx_string_put(cub->vars.mlx, cub->vars.win, 0 + 20, 20,
 			16777215, frames_char);
-
 	mlx_string_put(cub->vars.mlx, cub->vars.win, 0 + 20, 20,
-			16777215, frames_char);
+		16777215, frames_char);
 	return (-1);
 }

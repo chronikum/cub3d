@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 18:00:06 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 13:57:00 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:08:05 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 	Builds the 2d charmap from the linked list t_map_data
 	Saves the result in the cub struct.
 */
-
 void	build_2d_charmap(t_cub *cub)
 {
 	t_map_data	*data;
