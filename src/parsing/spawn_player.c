@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 18:13:04 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 15:31:58 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:34:28 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,17 @@ int	init_spawning_player(t_cub *cub, int row, int column)
 void	calculate_player_pos(t_cub *cub)
 {
 	t_map	*tmp;
-    t_vec2  *player;
+	t_vec2	*player;
 
-    player = malloc(sizeof(t_vec2));
+	player = xmalloc(sizeof(t_vec2));
 	tmp = cub->map;
 	while (tmp != NULL)
 	{
 		if (init_spawning_player(cub, tmp->y, tmp->x))
 		{
-            cub->player = player;
+			cub->player = player;
 			cub->player->x = tmp->x;
 			cub->player->y = tmp->y;
-			printf("Player starting position %f %f\n", cub->player->x, cub->player->y);
 		}
 		tmp = tmp->next;
 	}
