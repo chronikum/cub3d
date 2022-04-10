@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 20:11:16 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 20:30:46 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,5 +243,6 @@ int				spawn_south(t_cub *cub);
 int				clear_data(t_cub *cub);
 // UTILS
 double			ternary_double(bool statement, double is_true, double is_false);
-
+void			exit_on_error(void);
+void			exit_on_texture_error(void);
 #endif

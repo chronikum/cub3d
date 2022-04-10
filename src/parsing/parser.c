@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/08 12:28:03 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 20:35:01 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,18 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 				break ;
 		}
 		else if (cub->id_done == false && identifier(cub, read))
-			exit(EXIT_FAILURE);
+			exit_on_error();
 		else if (cub->id_done == true && map(cub, NULL, read, 0))
-			exit(EXIT_FAILURE);
+			exit_on_error();
 		identifier_done(cub);
 		free(read);
 		get_next_line(fd, &read);
 	}
 	cub->map_done = is_map_valid(cub, false, 0);
 	build_2d_charmap(cub);
-	if ((cub->id_done == false || cub->map_done == false) && clear_data(cub))
-		return (NULL);
+	printf("ID: %d, MAP: %d\n", cub->id_done, cub->map_done);
+	if ((cub->id_done == false || cub->map_done == false))
+		exit_on_error();
 	return (cub);
 }
 
@@ -84,19 +85,12 @@ t_cub	*check_file_content(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-	{
-		ft_putendl_fd("Corrupted file (open)", 2);
-		return (NULL);
-	}
+		exit_on_error();
 	cub = get_data(fd, NULL, NULL);
 	if (cub == NULL)
 		ft_putendl_fd("Error\nmisconfiguration", 2);
 	if (close(fd) == -1)
-	{
-		ft_putendl_fd("Corrupted file (close)", 2);
-		clear_data(cub);
-		return (NULL);
-	}
+		exit_on_error();
 	return (cub);
 }
 

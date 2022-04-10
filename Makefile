@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/10 19:25:22 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/10 20:33:00 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ GNL		=	./src/gnl/get_next_line.c \
 UTILS =		./src/utils/build_charmap.c \
 			./src/utils/put_pixel.c \
 			./src/utils/create_vector2.c \
-			./src/utils/ternary_helper.c
+			./src/utils/ternary_helper.c \
+			./src/utils/exit_error.c
 
 CONTROLS = ./src/controls/keyhandler.c
 
@@ -80,7 +81,7 @@ LIB				=		@make -C ./libft
 
 MLX				=		@make -C $(mlxpath)
 
-CFLAGS			=		-Wall -Werror -Wextra
+CFLAGS			=		-Wall -Werror -Wextra -g
 
 DEBUG			=		-g -fsanitize=address
 

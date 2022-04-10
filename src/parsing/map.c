@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:51:46 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 16:13:17 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 20:39:50 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ bool	is_map_valid(t_cub *cub, bool player_set, int n_col)
 			n_col = node->x;
 		if (check_map_walls(cub, node))
 			return (false);
-		if ((node->x > n_col && node->o != '1'))
+		if ((node->x > n_col && node->o != '1' && node->o != ' '))
 			return (false);
 		if (node->next != NULL && node->y != node->next->y
 			&& check_wall_before(cub, node->x, node->y))
