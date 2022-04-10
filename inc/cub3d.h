@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 15:17:25 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:30:36 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,11 +244,21 @@ void		draw_textures(t_cub *cub, int x);
 
 void		render_minimap(t_cub *cub);
 
+// MLX Helpers
+void		mlx_draw_imagegiven(t_cub *cub);
+void		destroy_mlx_image(t_cub *cub);
+void		create_mlx_data(t_cub *cub);
+
 // MOVEMENT
 void		move(t_cub *cub);
 void		rotate_right(t_cub *cub);
 void		rotate_left(t_cub *cub);
 
+// SPAWNING
+int			spawn_west(t_cub *cub);
+int			spawn_north(t_cub *cub);
+int			spawn_east(t_cub *cub);
+int			spawn_south(t_cub *cub);
 
 // CLEAR DATA
 int	clear_data(t_cub *cub);

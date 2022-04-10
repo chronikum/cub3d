@@ -6,10 +6,9 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 18:13:04 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/07 18:16:19 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:31:58 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../../inc/cub3d.h" 
 
@@ -24,37 +23,13 @@ int	init_spawning_player(t_cub *cub, int row, int column)
 
 	orientation = get_node_value_at(cub, row, column);
 	if (orientation == 'W')
-	{
-		cub->math->dirX = 0.00;
-		cub->math->dirY = -1.00;
-		cub->math->planeX = -0.66;
-		cub->math->planeY = 0;
-		return (1);
-	}
+		return (spawn_west(cub));
 	else if (orientation == 'E')
-	{
-		cub->math->dirX = 0.00;
-		cub->math->dirY = 1.00;
-		cub->math->planeX = 0.66;
-		cub->math->planeY = 0;
-		return (1);
-	}
+		return (spawn_east(cub));
 	else if (orientation == 'S')
-	{
-		cub->math->dirX = 1.00;
-		cub->math->dirY = 0.00;
-		cub->math->planeY = -0.66;
-		cub->math->planeX = 0;
-		return (1);
-	}
+		return (spawn_south(cub));
 	else if (orientation == 'N')
-	{
-		cub->math->dirX = -1.00;
-		cub->math->dirY = 0.00;
-		cub->math->planeX = 0;
-		cub->math->planeY = 0.66;
-		return (1);
-	}
+		return (spawn_north(cub));
 	return (0);
 }
 

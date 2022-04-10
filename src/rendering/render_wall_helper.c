@@ -6,10 +6,9 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:13:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 15:13:04 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:24:12 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../../inc/cub3d.h"
 
@@ -24,10 +23,12 @@ void	write_in_mlx_buffer(t_cub *cub, int x, int y)
 		cub->math->texY = (int)cub->math->texPos & (64 - 1);
 		cub->math->texPos += cub->math->step;
 		cub->math->texColor
-				= get_text_dir(cub)->texture_data[64 * cub->math->texY + cub->math->texX];
+			= get_text_dir(cub)->texture_data[64
+			* cub->math->texY + cub->math->texX];
 		if (cub->math->side == 1)
-			cub->math->texColor = (cub->math->texColor >> 1) & 8355711; // Darken sides
-		cub->math->buff[y][x] = distance_color(cub->math->texColor, (cub->math->perpWallDist / 10));
+			cub->math->texColor = (cub->math->texColor >> 1) & 8355711;
+		cub->math->buff[y][x] = distance_color(cub->math->texColor,
+				(cub->math->perpWallDist / 10));
 		y++;
 	}
 }
@@ -39,7 +40,7 @@ void	write_in_mlx_buffer(t_cub *cub, int x, int y)
 void	draw_textures(t_cub *cub, int x)
 {
 	int	y_helper;
-	
+
 	if (cub->math->side == 0)
 	{
 		cub->math->wallX
@@ -59,7 +60,6 @@ void	draw_textures(t_cub *cub, int x)
 	cub->math->step = 1.0 * 64 / cub->math->lineHeight;
 	cub->math->texPos = (cub->math->drawStart - HEIGHT
 			/ 2 + cub->math->lineHeight / 2) * cub->math->step;
-			
 	y_helper = cub->math->drawStart;
 	write_in_mlx_buffer(cub, x, y_helper);
 }

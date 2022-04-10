@@ -6,52 +6,11 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 17:50:13 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:26:20 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h" 
-
-/**
- * Loads and displays the image from the buffer
- */
-void	mlx_draw_imagegiven(t_cub *cub)
-{
-	int x;
-	int y;
-	
-	x = 0;
-	y = 0;
-	while (y < HEIGHT)
-	{
-		x = 0;
-		while (x < WIDTH)
-		{
-			cub->data.addr[y * (int)WIDTH + x] = cub->math->buff[y][x];
-			x++;
-		}
-		y++;
-	}
-}
-
-/**
- * Gets called when a new image is being displayed
- */
-void	destroy_mlx_image(t_cub *cub)
-{
-	mlx_put_image_to_window(cub->vars.mlx, cub->vars.win, cub->data.img, 0, 0);
-	mlx_destroy_image (cub->vars.mlx, cub->data.img);
-}
-
-/**
- * Creates the mlx data values
- */
-void	create_mlx_data(t_cub *cub)
-{
-	cub->data.img = mlx_new_image(cub->vars.mlx, WIDTH, HEIGHT);
-	cub->data.addr = (int *) mlx_get_data_addr(cub->data.img, &cub->data.bits_per_pixel,
-			&cub->data.line_length, &cub->data.endian);
-}
 
 /**
  * This is the render loop. It gets called every frame.
@@ -66,8 +25,8 @@ int	render_loop(void	*cub_)
 	x = 0;
 	cub = (t_cub *) cub_;
 	move(cub);
-	// if (is_player_in_cache(cub))
-	// 	return (0);
+	if (is_player_in_cache(cub))
+		return (0);
 	create_mlx_data(cub);
 	while (x < WIDTH)
 	{
@@ -92,7 +51,8 @@ void	set_moverot_speeds(t_cub *cub)
 }
 
 /**
- * Creates a window, creates mlx variables, loads the textures, setup hooks and loops
+ * Creates a window, creates mlx variables, loads the textures, 
+ * setup hooks and loops
  * Sets initial key controls too
  */
 static void	create_window(t_cub *cub)
@@ -108,7 +68,6 @@ static void	create_window(t_cub *cub)
 	mlx_mouse_hide();
 	mlx_hook(cub->vars.win, 2, 1L << 0, key_handler, cub);
 	mlx_hook(cub->vars.win, 3, 1L << 0, key_up, cub);
-	// mlx_hook(cub->vars.win, 4, 1L << 2, fov_handler, cub);
 	mlx_loop_hook(cub->vars.mlx, render_loop, cub);
 	mlx_loop(cub->vars.mlx);
 }

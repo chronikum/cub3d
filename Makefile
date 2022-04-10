@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/10 15:17:41 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/10 15:32:26 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ PARSING =	./src/parsing/identifiers.c \
 			./src/parsing/lst.c \
 			./src/parsing/map.c \
 			./src/parsing/parser.c \
-			./src/parsing/spawn_player.c
+			./src/parsing/spawn_player.c \
+			./src/parsing/spawn_player_direction.c
 
 GNL		=	./src/gnl/get_next_line.c \
 			./src/gnl/get_next_line_utils.c
@@ -50,7 +51,8 @@ RENDERING =	./src/rendering/render_preparing.c \
 			./src/rendering/render_walls.c \
 			./src/rendering/draw_line_color.c \
 			./src/textures/shading.c \
-			./src/rendering/render_wall_helper.c
+			./src/rendering/render_wall_helper.c \
+			./src/rendering/mlx_helper.c
 
 TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c \
