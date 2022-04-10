@@ -6,14 +6,13 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:31:46 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 15:08:25 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:05:52 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
 /*
-	TODO: REMOVE BEFORE EVAL
 	Gets the time
 */
 long	get_time(void)
@@ -28,7 +27,6 @@ long	get_time(void)
 }
 
 /*
-	TODO: REMOVE BEFORE EVAL
 	Calculates the frames per seconds
 */
 int	display_fps(void)
@@ -63,13 +61,13 @@ int	render_fps(t_cub *cub, int frames)
 	if (frames != -1)
 	{
 		frames_char = ft_itoa(frames);
-		mlx_string_put(cub->vars.mlx, cub->vars.win, 0 + 20, 20,
+		mlx_string_put(cub->vars.mlx, cub->vars.win, 500, 20,
 			16777215, frames_char);
 	}
 	else
-		mlx_string_put(cub->vars.mlx, cub->vars.win, 0 + 20, 20,
+		mlx_string_put(cub->vars.mlx, cub->vars.win, 500, 20,
 			16777215, frames_char);
-	mlx_string_put(cub->vars.mlx, cub->vars.win, 0 + 20, 20,
+	mlx_string_put(cub->vars.mlx, cub->vars.win, 500, 20,
 		16777215, frames_char);
 	return (-1);
 }
