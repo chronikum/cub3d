@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 19:03:35 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:06:41 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,7 +241,5 @@ int				spawn_south(t_cub *cub);
 int				clear_data(t_cub *cub);
 // UTILS
 double			ternary_double(bool statement, double is_true, double is_false);
-int				display_fps(void);
-int				render_fps(t_cub *cub, int frames);
 
 #endif
