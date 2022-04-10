@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 11:24:05 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/08 15:01:19 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:03:12 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * Initializes move trigger for cub3d struct
  */
-t_move_trigger	*initalize_key_trigger()
+t_move_trigger	*initalize_key_trigger(void)
 {
 	t_move_trigger	*move_trigger;
 
@@ -26,7 +26,6 @@ t_move_trigger	*initalize_key_trigger()
 	move_trigger->is_moving_right = false;
 	move_trigger->is_rotating_left = false;
 	move_trigger->is_rotating_right = false;
-
 	return (move_trigger);
 }
 

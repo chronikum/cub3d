@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 15:26:56 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 12:38:52 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:02:41 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ bool	is_player_in_cache(t_cub *cub)
 	static double	old_olddiry = 0;
 
 	if (check_player_position(cub)
-		&& old_planex == cub->math->planeX && old_planey == cub->math->planeY &&
-		old_olddiry == cub->math->dirY && old_olddirx == cub->math->dirX)
+		&& old_planex == cub->math->planeX && old_planey == cub->math->planeY
+		&& old_olddiry == cub->math->dirY && old_olddirx == cub->math->dirX)
 	{
 		return (true);
 	}

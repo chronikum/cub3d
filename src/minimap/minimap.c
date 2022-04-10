@@ -6,12 +6,20 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:55:05 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 18:46:24 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:07:31 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h" 
 
+/**
+ * Returns true if the wall is a direction or empty space
+ */
+bool	is_direction(char c)
+{
+	return (c == '0' || c == 'S' || c == 'N'
+		|| c == 'E' || c == 'W');
+}
 
 /**
  * Draws the player on the minimap
@@ -105,11 +113,11 @@ void	render_minimap(t_cub *cub)
 			pos[0] = 0;
 			pos[1] += TILESIZE;
 		}
+		draw_floor(cub, pos[0], pos[1], TILESIZE - 1);
 		if (node->o == '1')
 			draw_square(cub, pos[0], pos[1], TILESIZE - 1);
-		if (node->o == '0' || node->o == 'S' || node->o == 'N' || node->o == 'E' || node->o == 'W')
-			draw_floor(cub, pos[0], pos[1], TILESIZE - 1);
-		if (node->x == floor(cub->player->x) && node->y == floor(cub->player->y))
+		if (node->x == floor(cub->player->x)
+			&& node->y == floor(cub->player->y))
 			draw_player(cub, pos[0], pos[1], TILESIZE - 1);
 		pos[0] += TILESIZE;
 		old_y = node->y;
