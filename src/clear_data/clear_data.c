@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:32:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 16:18:54 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:33:12 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int	clear_data(t_cub *cub)
 		data_tofree = data_tmp;
 	}
 	ft_memfreeall((void **)cub->c_map);
+	mlx_destroy_image(cub->vars.mlx, cub->vars.win);
 	free(cub);
 	return (1);
 }
