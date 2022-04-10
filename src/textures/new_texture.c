@@ -6,12 +6,29 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:55:56 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 20:50:14 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 20:57:02 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 #include "../../assets/assets.h"
+
+/**
+ * Validates texture resolution and makes sure it is a square
+ */
+bool	check_texture_res(t_texture *tex)
+{
+	int	width;
+	int height;
+	
+	width = tex->line_size / (tex->bpp / 8);
+	height = tex->line_size / (tex->bpp / 8);
+	
+	if (width == height && width == 64)
+		return (true);
+	ft_putendl_fd("Textures are not square or have wrong resolution", 2);
+	exit(EXIT_FAILURE);
+}
 
 /**
  * Loads the image texture information, prepares int information array too
@@ -50,6 +67,7 @@ t_texture	*new_texture(void *img_ptr)
 			&texture->line_size, &texture->endian);
 	texture->texture = xmalloc(sizeof(int) * 64 * 64);
 	texture->texture_data = (int *) texture->texture_ptr;
+	check_texture_res(texture);
 	texture->width = 64;
 	texture->height = 64;
 	prepare_texture_data(texture);
