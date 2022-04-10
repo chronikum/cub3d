@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 19:06:41 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:08:48 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,6 +230,7 @@ void			destroy_mlx_image(t_cub *cub);
 void			create_mlx_data(t_cub *cub);
 // MOVEMENT
 void			move(t_cub *cub);
+int				mouse_handler(t_cub *cub);
 void			rotate_right(t_cub *cub);
 void			rotate_left(t_cub *cub);
 // SPAWNING

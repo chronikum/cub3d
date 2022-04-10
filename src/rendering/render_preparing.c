@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 19:05:41 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:09:00 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	render_loop(void	*cub_)
 	x = 0;
 	cub = (t_cub *) cub_;
 	move(cub);
+	mouse_handler(cub);
 	if (is_player_in_cache(cub))
 		return (0);
 	create_mlx_data(cub);

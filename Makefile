@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/10 19:06:19 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/10 19:07:52 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ CACHE	=	./src/cache/player_cache.c
 MINIMAP	=	./src/minimap/minimap.c
 
 MOVEMENT	=	./src/movement/movement.c \
-				./src/movement/rotation.c
+				./src/movement/rotation.c \
+				./src/movement/mouse_handler.c
 
 
 SRCS = $(PARSING) $(CACHE) $(MOVEMENT) $(MINIMAP) $(RENDERING) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
