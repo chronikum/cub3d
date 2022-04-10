@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:32:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 16:52:59 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:58:28 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,28 @@ void	free_textures(t_cub *cub)
 	if (cub->no != NULL)
 	{
 		free(cub->tex_no->texture);
+		free(cub->tex_no->texture_data);
 		free(cub->tex_no);
 		free(cub->no);
 	}
 	if (cub->so != NULL)
 	{
 		free(cub->tex_so->texture);
+		free(cub->tex_so->texture_data);
 		free(cub->tex_so);
 		free(cub->so);
 	}
 	if (cub->we != NULL)
 	{
 		free(cub->tex_we->texture);
+		free(cub->tex_we->texture_data);
 		free(cub->tex_we);
 		free(cub->we);
 	}
 	if (cub->ea != NULL)
 	{
 		free(cub->tex_ea->texture);
+		free(cub->tex_ea->texture_data);
 		free(cub->tex_ea);
 		free(cub->ea);
 	}
