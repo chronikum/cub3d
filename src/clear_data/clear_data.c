@@ -6,11 +6,21 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:32:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 16:58:28 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 17:03:18 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
+
+/**
+ * Frees a texture pointer
+ */
+void	free_texture_pointer(t_texture *to_free)
+{
+	free(to_free->texture);
+	free(to_free->texture_data);
+	free(to_free);
+}
 
 /**
  * Frees the map list
@@ -36,31 +46,27 @@ void	free_textures(t_cub *cub)
 {
 	if (cub->no != NULL)
 	{
-		free(cub->tex_no->texture);
-		free(cub->tex_no->texture_data);
-		free(cub->tex_no);
+		free_texture_pointer(cub->tex_no);
 		free(cub->no);
+		free(cub->img_no);
 	}
 	if (cub->so != NULL)
 	{
-		free(cub->tex_so->texture);
-		free(cub->tex_so->texture_data);
-		free(cub->tex_so);
+		free_texture_pointer(cub->tex_so);
 		free(cub->so);
+		free(cub->img_so);
 	}
 	if (cub->we != NULL)
 	{
-		free(cub->tex_we->texture);
-		free(cub->tex_we->texture_data);
-		free(cub->tex_we);
+		free_texture_pointer(cub->tex_we);
 		free(cub->we);
+		free(cub->img_we);
 	}
 	if (cub->ea != NULL)
 	{
-		free(cub->tex_ea->texture);
-		free(cub->tex_ea->texture_data);
-		free(cub->tex_ea);
+		free_texture_pointer(cub->tex_ea);
 		free(cub->ea);
+		free(cub->img_ea);
 	}
 }
 
