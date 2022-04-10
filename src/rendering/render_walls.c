@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 18:36:54 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 14:47:55 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	write_in_mlx_buffer(t_cub *cub, int x, int y)
 		cub->math->texY = (int)cub->math->texPos & (64 - 1);
 		cub->math->texPos += cub->math->step;
 		cub->math->texColor
-				= cub->tex_ea->texture_data[64 * cub->math->texY + cub->math->texX]; // Choose texture for pixel here later
+				= get_text_dir(cub)->texture_data[64 * cub->math->texY + cub->math->texX];
 		if (cub->math->side == 1)
 			cub->math->texColor = (cub->math->texColor >> 1) & 8355711; // Darken sides
 		cub->math->buff[y][x] = distance_color(cub->math->texColor, (cub->math->perpWallDist / 10));

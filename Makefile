@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/08 18:08:53 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/10 14:47:15 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ RENDERING =	./src/rendering/render_preparing.c \
 
 TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c \
-			./src/textures/fill_floor_ceiling.c
+			./src/textures/fill_floor_ceiling.c \
+			./src/textures/get_texture_direction.c
 			
 CACHE	=	./src/cache/player_cache.c
 
