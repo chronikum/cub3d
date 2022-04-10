@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 15:30:36 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:39:43 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct s_map_data {
 	struct s_map_data	*next;
 }	t_map_data;
 
- typedef struct s_texture {
+typedef struct s_texture {
 	int		width;
 	int		height;
 	char	*texture_ptr;
@@ -129,7 +129,6 @@ typedef struct s_math {
 	double		oldPlaneX;
 	double		spritePosX;
 	double		spritePosY;
-	
 	int			buff[HEIGHT][WIDTH];
 	int			**texture;
 	double		wallX;
@@ -139,7 +138,6 @@ typedef struct s_math {
 	int			texY;
 	int			texColor;
 }	t_math;
-
 
 typedef struct s_vec2 {
 	double	x;
@@ -183,88 +181,65 @@ typedef struct s_line {
 	t_cub	*cub;
 }	t_line;
 
-
 // Preparation and starting cub3d
 void			start_cub3d(t_cub *cub);
-t_move_trigger	*initalize_key_trigger();
-
+t_move_trigger	*initalize_key_trigger(void);
 // gets value of this coordinate
-char	get_node_value_at(t_cub *cub, int row, int column);
-
-// Put pixel at positoon x and y
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-
-
+char			get_node_value_at(t_cub *cub, int row, int column);
+// Put pixel at position x and y
+void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 // Vector logic
-t_vec2	*create_vector(double x, double y);
-void	uvec(t_vec2 *vector, double x, double y);
-
+t_vec2			*create_vector(double x, double y);
+void			uvec(t_vec2 *vector, double x, double y);
 // PARSING
+t_cub			*get_data(int fd, char *read, t_cub *cub);
+t_cub			*check_file_content(char *file);
+int				check_file_format(char *file);
 
-t_cub		*get_data(int fd, char *read, t_cub *cub);
-t_cub		*check_file_content(char *file);
-int			check_file_format(char *file);
-
-void		identifier_done(t_cub *cub);
-int			identifier(t_cub *cub, char *read);
-int			map(t_cub *cub, t_map *tmp, char *read, int i);
-
-t_map		*ft_lstnew(void);
-void		ft_lstadd_back(t_map **lst, t_map *new);
-bool		is_map_valid(t_cub *cub, bool player_set, int n_col);
-t_map_data	*ft_data_new_data(char *string);
-void		ft_data_append_data(t_map_data **lst, t_map_data *new);
-int			ft_lst_data_count(t_map_data *head);
-void		build_2d_charmap(t_cub *cub);
-
-
+void			identifier_done(t_cub *cub);
+int				identifier(t_cub *cub, char *read);
+int				map(t_cub *cub, t_map *tmp, char *read, int i);
+t_map			*ft_lstnew(void);
+void			ft_lstadd_back(t_map **lst, t_map *new);
+bool			is_map_valid(t_cub *cub, bool player_set, int n_col);
+t_map_data		*ft_data_new_data(char *string);
+void			ft_data_append_data(t_map_data **lst, t_map_data *new);
+int				ft_lst_data_count(t_map_data *head);
+void			build_2d_charmap(t_cub *cub);
 // spawms player
-void		calculate_player_pos(t_cub *cub);
-
+void			calculate_player_pos(t_cub *cub);
 // Key Handler
-int			key_up(int keycode, t_cub *cub);
-int			key_handler(int keycode, t_cub *cub);
-
+int				key_up(int keycode, t_cub *cub);
+int				key_handler(int keycode, t_cub *cub);
 // RENDERING
-
-double		render_walls(t_cub *c, int x);
-int			draw_line_color(t_cub *cub, t_vec2 *v1, t_vec2 *v0, int color);
-bool		is_player_in_cache(t_cub *cub);
-
+double			render_walls(t_cub *c, int x);
+int				draw_line_color(t_cub *cub, t_vec2 *v1, t_vec2 *v0, int color);
+bool			is_player_in_cache(t_cub *cub);
 // TEXTURES
-
-bool		load_textures(t_cub *cub);
-t_texture	*new_texture(void *img_ptr);
-void		fill_floor_ceiling(t_cub *cub, int x);
-int			distance_color(int c, double d);
-t_texture	*get_text_dir(t_cub *cub);
-void		draw_textures(t_cub *cub, int x);
-
+bool			load_textures(t_cub *cub);
+t_texture		*new_texture(void *img_ptr);
+void			fill_floor_ceiling(t_cub *cub, int x);
+int				distance_color(int c, double d);
+t_texture		*get_text_dir(t_cub *cub);
+void			draw_textures(t_cub *cub, int x);
 // MINIMAP
-
-void		render_minimap(t_cub *cub);
-
+void			render_minimap(t_cub *cub);
 // MLX Helpers
-void		mlx_draw_imagegiven(t_cub *cub);
-void		destroy_mlx_image(t_cub *cub);
-void		create_mlx_data(t_cub *cub);
-
+void			mlx_draw_imagegiven(t_cub *cub);
+void			destroy_mlx_image(t_cub *cub);
+void			create_mlx_data(t_cub *cub);
 // MOVEMENT
-void		move(t_cub *cub);
-void		rotate_right(t_cub *cub);
-void		rotate_left(t_cub *cub);
-
+void			move(t_cub *cub);
+void			rotate_right(t_cub *cub);
+void			rotate_left(t_cub *cub);
 // SPAWNING
-int			spawn_west(t_cub *cub);
-int			spawn_north(t_cub *cub);
-int			spawn_east(t_cub *cub);
-int			spawn_south(t_cub *cub);
-
+int				spawn_west(t_cub *cub);
+int				spawn_north(t_cub *cub);
+int				spawn_east(t_cub *cub);
+int				spawn_south(t_cub *cub);
 // CLEAR DATA
-int	clear_data(t_cub *cub);
-
+int				clear_data(t_cub *cub);
 // UTILS
-double	ternary_double(bool statement, double is_true, double is_false);
-
+double			ternary_double(bool statement, double is_true, double is_false);
 
 #endif
