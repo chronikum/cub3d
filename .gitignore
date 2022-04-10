@@ -7,3 +7,4 @@ cub3d
 minilibx_macos/libmlx.a
 .DS_Store
 .dccache
+cub3d.dSYM/Contents/Info.plist

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:55:56 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/08 16:26:31 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:00:30 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
  */
 void	prepare_texture_data(t_texture *t)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -39,12 +39,11 @@ void	prepare_texture_data(t_texture *t)
  * Loads a texture struct with the given img_ptr and
  * returns it. Fills the texture with texture data int array
  */
-t_texture	*new_texture(void *img_ptr, t_cub *cub)
+t_texture	*new_texture(void *img_ptr)
 {
-	t_texture		*texture;
+	t_texture	*texture;
 
-	(void) cub;
-	texture = xmalloc(sizeof(t_texture)); //to free in clear_data.c
+	texture = xmalloc(sizeof(t_texture));
 	texture->texture_ptr = mlx_get_data_addr(img_ptr, &texture->bpp, &texture->line_size,
 		&texture->endian);
 	texture->texture = xmalloc(sizeof(int) * 64 * 64);
@@ -52,6 +51,5 @@ t_texture	*new_texture(void *img_ptr, t_cub *cub)
 	texture->width = 64;
 	texture->height = 64;
 	prepare_texture_data(texture);
-	printf("Texture size: %d\n", texture->width);
 	return (texture);
 }
