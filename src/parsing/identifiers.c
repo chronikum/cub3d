@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:52:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/11 14:06:45 by home             ###   ########.fr       */
+/*   Updated: 2022/04/11 14:12:22 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,23 +82,22 @@ static void	fill_rgb(int *color, char *read)
 	arr = ft_split(&read[i], ',');
 	if (arr == NULL)
 		return ;
-	rgb[0] = ft_atoi(arr[0]);
-	rgb[1] = ft_atoi(arr[1]);
-	rgb[2] = ft_atoi(arr[2]);
-	if (rgb[0] < 0 || rgb[0] > 255
-		|| rgb[1] < 0 || rgb[1] > 255
-		|| rgb[2] < 0 || rgb[2] > 255)
-	{
-		ft_memfreeall((void **)arr);
-		return ;
-	}
 	if (count_str(arr) != 3)
 	{
 		ft_memfreeall((void **)arr);
 		return ;
 	}
-	*color = (65536 * rgb[0]) + (256 * rgb[1]) + rgb[2];
+	rgb[0] = ft_atoi(arr[0]);
+	rgb[1] = ft_atoi(arr[1]);
+	rgb[2] = ft_atoi(arr[2]);
 	ft_memfreeall((void **)arr);
+	if (rgb[0] < 0 || rgb[0] > 255)
+		return ;
+	else if (rgb[1] < 0 || rgb[1] > 255)
+		return ;
+	else if (rgb[2] < 0 || rgb[2] > 255)
+		return ;
+	*color = (65536 * rgb[0]) + (256 * rgb[1]) + rgb[2];
 }
 
 int	identifier(t_cub *cub, char *read)
