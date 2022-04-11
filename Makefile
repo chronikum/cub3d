@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: home <home@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/10 20:33:00 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/11 10:33:24 by home             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,13 @@ else
 	OS			=		Linux
 	mlxpath		=		./minilibx_linux
 endif
+
+# Color
+Set_Color		=		\033[0m						# Text Reset
+Red				=		\033[0;31m					# Red
+Green			=		\033[0;32m					# Green
+Yellow			=		\033[0;33m					# Yellow
+Cyan			=		\033[0;36m					# Cyan
 
 CC = gcc
 
@@ -59,7 +66,7 @@ TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c \
 			./src/textures/fill_floor_ceiling.c \
 			./src/textures/get_texture_direction.c
-			
+
 CACHE	=	./src/cache/player_cache.c
 
 MINIMAP	=	./src/minimap/minimap.c

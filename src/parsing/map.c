@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:51:46 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 20:39:50 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 11:08:17 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,26 +90,26 @@ bool	is_map_valid(t_cub *cub, bool player_set, int n_col)
 	return (player_set);
 }
 
-/*	Create one unique string by joing splitted array */
+/*	Create a copy of a string and replaces
+*	a specific char by another one
+*/
 
-static char	*ft_joinstr(char **arr)
+static char	*ft_replace_chars(char *read, char erase, char insert)
 {
-	char	*tmp;
-	char	*buf;
+	char	*str;
 	int		i;
 
-	i = 1;
-	if (arr == NULL || arr[0] == NULL)
+	i = 0;
+	str = ft_strdup(read);
+	if (str == NULL)
 		return (NULL);
-	buf = ft_strdup(arr[0]);
-	while (arr[i] != NULL)
+	while (str[i] != '\0')
 	{
-		tmp = ft_strjoin(buf, arr[i]);
-		free(buf);
-		buf = tmp;
+		if (str[i] == erase)
+			str[i] = insert;
 		i++;
 	}
-	return (buf);
+	return (str);
 }
 
 /*
@@ -120,17 +120,15 @@ static char	*ft_joinstr(char **arr)
 int	map(t_cub *cub, t_map *tmp, char *read, int i)
 {
 	static t_map_data	*map_data = NULL;
-	char				**arr;
 	char				*str;
 
-	arr = ft_split(read, ' ');
-	str = ft_joinstr(arr);
-	if (ft_memfreeall((void **)arr) && str == NULL)
+	str = ft_replace_chars(read, ' ', '1');
+	if (str == NULL)
 		return (1);
 	if (!map_data)
-		map_data = ft_data_new_data(ft_strdup(read));
+		map_data = ft_data_new_data(ft_strdup(str));
 	else
-		ft_data_append_data(&map_data, ft_data_new_data(ft_strdup(read)));
+		ft_data_append_data(&map_data, ft_data_new_data(ft_strdup(str)));
 	while (str[i] != '\0')
 	{
 		tmp = ft_lstnew();
