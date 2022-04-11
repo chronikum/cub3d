@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 13:14:10 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 20:17:22 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 10:36:10 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
  */
 void	move_forward(t_cub *cub)
 {
-	double	newX;
-	double	newY;
+	double	new_x;
+	double	new_y;
 
-	newX = cub->player->x + cub->math->dirX * cub->math->moveSpeed;
-	newY = cub->player->y + cub->math->dirY * cub->math->moveSpeed;
-	if (get_node_value_at(cub, newY, newX) != '1')
+	new_x = cub->player->x + cub->math->dirX * cub->math->moveSpeed;
+	new_y = cub->player->y + cub->math->dirY * cub->math->moveSpeed;
+	if (get_node_value_at(cub, new_y, new_x) != '1')
 	{
-		cub->player->x = newX;
-		cub->player->y = newY;
+		cub->player->x = new_x;
+		cub->player->y = new_y;
 	}
 }
 
@@ -34,15 +34,15 @@ void	move_forward(t_cub *cub)
  */
 void	move_backward(t_cub *cub)
 {
-	double	newX;
-	double	newY;
+	double	new_x;
+	double	new_y;
 
-	newX = cub->player->x - cub->math->dirX * cub->math->moveSpeed;
-	newY = cub->player->y - cub->math->dirY * cub->math->moveSpeed;
-	if (get_node_value_at(cub, newY, newX) != '1')
+	new_x = cub->player->x - cub->math->dirX * cub->math->moveSpeed;
+	new_y = cub->player->y - cub->math->dirY * cub->math->moveSpeed;
+	if (get_node_value_at(cub, new_y, new_x) != '1')
 	{
-		cub->player->x = newX;
-		cub->player->y = newY;
+		cub->player->x = new_x;
+		cub->player->y = new_y;
 	}
 }
 
@@ -51,15 +51,15 @@ void	move_backward(t_cub *cub)
  */
 void	move_left(t_cub *cub)
 {
-	double	newX;
-	double	newY;
+	double	new_x;
+	double	new_y;
 
-	newX = cub->player->x - cub->math->planeX * cub->math->moveSpeed;
-	newY = cub->player->y - cub->math->planeY * cub->math->moveSpeed;
-	if (get_node_value_at(cub, newY, newX) != '1')
+	new_x = cub->player->x - cub->math->planeX * cub->math->moveSpeed;
+	new_y = cub->player->y - cub->math->planeY * cub->math->moveSpeed;
+	if (get_node_value_at(cub, new_y, new_x) != '1')
 	{
-		cub->player->x = newX;
-		cub->player->y = newY;
+		cub->player->x = new_x;
+		cub->player->y = new_y;
 	}
 }
 
@@ -68,15 +68,15 @@ void	move_left(t_cub *cub)
  */
 void	move_right(t_cub *cub)
 {
-	double	newX;
-	double	newY;
+	double	new_x;
+	double	new_y;
 
-	newX = cub->player->x + cub->math->planeX * cub->math->moveSpeed;
-	newY = cub->player->y + cub->math->planeY * cub->math->moveSpeed;
-	if (get_node_value_at(cub, newY, newX) != '1')
+	new_x = cub->player->x + cub->math->planeX * cub->math->moveSpeed;
+	new_y = cub->player->y + cub->math->planeY * cub->math->moveSpeed;
+	if (get_node_value_at(cub, new_y, new_x) != '1')
 	{
-		cub->player->x = newX;
-		cub->player->y = newY;
+		cub->player->x = new_x;
+		cub->player->y = new_y;
 	}
 }
 
