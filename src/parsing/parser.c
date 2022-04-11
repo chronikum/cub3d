@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 20:35:01 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 17:10:52 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 	}
 	cub->map_done = is_map_valid(cub, false, 0);
 	build_2d_charmap(cub);
-	printf("ID: %d, MAP: %d\n", cub->id_done, cub->map_done);
 	if ((cub->id_done == false || cub->map_done == false))
 		exit_on_error();
 	return (cub);

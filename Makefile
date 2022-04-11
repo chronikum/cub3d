@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/11 14:26:21 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/11 17:07:14 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,16 +104,16 @@ $(NAME)			:		$(OBJS)
 						@echo "$(Cyan)Libft 100%$(Set_Color)"
 						$(MLX)
 						@echo "$(Yellow)MinilibX 100%$(Set_Color)"
-						@gcc $(CFLAGS) $(OBJS) libft/libft.a $(mlxpath)/libmlx.a $(MLXFLAGS) -o $(NAME)
+						@gcc $(CFLAGS) -D BONUS=0 $(OBJS) libft/libft.a $(mlxpath)/libmlx.a $(MLXFLAGS) -o $(NAME)
 						@echo "$(Green)Cub3d for $(OS) has been created$(Set_Color)"
 
-bonus			:		$(OBJS) $(BONUSO)
+bonus			:		$(OBJS)
 						@$(PRINT_HEADER)
 						$(LIB)
 						@echo "$(Cyan)Libft 100%$(Set_Color)"
 						$(MLX)
 						@echo "$(Yellow)MinilibX 100%$(Set_Color)"
-						@gcc $(CFLAGS) $(OBJS) libft/libft.a $(mlxpath)/libmlx.a $(MLXFLAGS) -o $(NAME)
+						@gcc $(CFLAGS) -D BONUS=1 $(OBJS) libft/libft.a $(mlxpath)/libmlx.a $(MLXFLAGS) -o $(NAME)
 						@echo "$(Green)Cub3d for $(OS) has been created$(Set_Color)"
 
 devmode			:		$(OBJS)
