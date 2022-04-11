@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:52:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 16:32:17 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 13:55:54 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,13 @@ static void	fill_rgb(int *color, char *read)
 	arr = ft_split(&read[i], ',');
 	if (arr == NULL)
 		return ;
+	if (arr[0] < 0 || arr[0] > 255
+		|| arr[1] < 0 || arr[1] > 255
+		|| arr[2] < 0 || arr[2] > 255)
+	{
+		ft_memfreeall((void **)arr);
+		return ;
+	}
 	if (count_str(arr) != 3)
 	{
 		ft_memfreeall((void **)arr);
