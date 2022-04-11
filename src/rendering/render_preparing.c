@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/11 17:49:02 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 18:14:35 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ static void	create_window(t_cub *cub)
 	calculate_player_pos(cub);
 	if (!load_textures(cub))
 		exit_on_texture_error();
-	mlx_mouse_hide();
+	if (BONUS == 1)
+		mlx_mouse_hide();
 	mlx_hook(cub->vars.win, 2, 1L << 0, key_handler, cub);
 	mlx_hook(cub->vars.win, 3, 1L << 0, key_up, cub);
 	mlx_hook(cub->vars.win, 17, 0, close_hook, &cub->vars);
