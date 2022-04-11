@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/11 13:44:57 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 17:49:02 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	render_loop(void	*cub_)
 	x = 0;
 	cub = (t_cub *) cub_;
 	move(cub);
-	mouse_handler(cub);
+	if (BONUS == 1)
+		mouse_handler(cub);
 	if (is_player_in_cache(cub))
 		return (0);
 	create_mlx_data(cub);
@@ -36,7 +37,8 @@ int	render_loop(void	*cub_)
 		x++;
 	}
 	mlx_draw_imagegiven(cub);
-	render_minimap(cub);
+	if (BONUS == 1)
+		render_minimap(cub);
 	destroy_mlx_image(cub);
 	return (0);
 }
@@ -68,6 +70,7 @@ static void	create_window(t_cub *cub)
 	mlx_mouse_hide();
 	mlx_hook(cub->vars.win, 2, 1L << 0, key_handler, cub);
 	mlx_hook(cub->vars.win, 3, 1L << 0, key_up, cub);
+	mlx_hook(cub->vars.win, 17, 0, close_hook, &cub->vars);
 	mlx_loop_hook(cub->vars.mlx, render_loop, cub);
 	mlx_loop(cub->vars.mlx);
 }
@@ -77,5 +80,6 @@ static void	create_window(t_cub *cub)
  */
 void	start_cub3d(t_cub *cub)
 {
+	close_static_saver(cub);
 	create_window(cub);
 }

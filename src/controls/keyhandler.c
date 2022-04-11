@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 11:24:05 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/10 15:03:12 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 17:49:41 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,21 @@ t_move_trigger	*initalize_key_trigger(void)
 }
 
 /*	Event hook to close the window with ESCAPE */
-static void	close_window(t_cub *cub)
+void	close_window(t_cub *cub)
 {
 	mlx_destroy_window(cub->vars.mlx, cub->vars.win);
 	clear_data(cub);
 	exit(EXIT_SUCCESS);
+}
+
+/**
+ * Close hook being called by red cross
+ * Calls close_static_saver with NULL to quit program and clear data
+ */
+int	close_hook(void)
+{
+	close_static_saver(NULL);
+	return (1);
 }
 
 /*	KEYPRESS HANDLER : event hook depending on pressed key */

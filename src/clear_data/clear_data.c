@@ -6,11 +6,27 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:32:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 17:03:18 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 17:49:33 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
+
+/**
+ * Saves the t_cub in a static so we can close with red cross and
+ * clear data
+ * If gets called with NULL, it quits progrmm.
+ * If gets called with pointer, it sets static var
+ */
+void	close_static_saver(t_cub *set_cub)
+{
+	static t_cub	*cub = NULL;
+
+	if (set_cub)
+		cub = set_cub;
+	else
+		close_window(cub);
+}
 
 /**
  * Frees a texture pointer

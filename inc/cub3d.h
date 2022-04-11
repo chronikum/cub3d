@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/11 14:29:18 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 17:47:16 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define MINIMAP_RAY_COLOR			55555
 # define MINIMAP_HEIGHT				400
 # define MINIMAP_WIDTH				680
+# define BONUS						0
 
 /*----------------------------------------------------------------------*/
 /*							MinilibX Data Struct						*/
@@ -244,4 +245,7 @@ double			ternary_double(bool statement, double is_true, double is_false);
 void			exit_on_error(void);
 void			exit_on_texture_error(void);
 bool			check_rgb_valid(int r, int g, int b);
+int				close_hook(void);
+void			close_window(t_cub *cub);
+void			close_static_saver(t_cub *set_cub);
 #endif
