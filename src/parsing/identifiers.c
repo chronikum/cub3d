@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:52:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/11 13:55:54 by home             ###   ########.fr       */
+/*   Updated: 2022/04/11 14:06:45 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static void	fill_rgb(int *color, char *read)
 {
 	int		i;
 	char	**arr;
+	int		rgb[3];
 
 	i = 0;
 	while (read[i] == ' ')
@@ -81,9 +82,12 @@ static void	fill_rgb(int *color, char *read)
 	arr = ft_split(&read[i], ',');
 	if (arr == NULL)
 		return ;
-	if (arr[0] < 0 || arr[0] > 255
-		|| arr[1] < 0 || arr[1] > 255
-		|| arr[2] < 0 || arr[2] > 255)
+	rgb[0] = ft_atoi(arr[0]);
+	rgb[1] = ft_atoi(arr[1]);
+	rgb[2] = ft_atoi(arr[2]);
+	if (rgb[0] < 0 || rgb[0] > 255
+		|| rgb[1] < 0 || rgb[1] > 255
+		|| rgb[2] < 0 || rgb[2] > 255)
 	{
 		ft_memfreeall((void **)arr);
 		return ;
@@ -93,8 +97,7 @@ static void	fill_rgb(int *color, char *read)
 		ft_memfreeall((void **)arr);
 		return ;
 	}
-	*color = (65536 * ft_atoi(arr[0]))
-		+ (256 * ft_atoi(arr[1])) + ft_atoi(arr[2]);
+	*color = (65536 * rgb[0]) + (256 * rgb[1]) + rgb[2];
 	ft_memfreeall((void **)arr);
 }
 
