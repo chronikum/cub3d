@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:52:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/07 16:32:17 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 14:12:22 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static void	fill_rgb(int *color, char *read)
 {
 	int		i;
 	char	**arr;
+	int		rgb[3];
 
 	i = 0;
 	while (read[i] == ' ')
@@ -86,9 +87,17 @@ static void	fill_rgb(int *color, char *read)
 		ft_memfreeall((void **)arr);
 		return ;
 	}
-	*color = (65536 * ft_atoi(arr[0]))
-		+ (256 * ft_atoi(arr[1])) + ft_atoi(arr[2]);
+	rgb[0] = ft_atoi(arr[0]);
+	rgb[1] = ft_atoi(arr[1]);
+	rgb[2] = ft_atoi(arr[2]);
 	ft_memfreeall((void **)arr);
+	if (rgb[0] < 0 || rgb[0] > 255)
+		return ;
+	else if (rgb[1] < 0 || rgb[1] > 255)
+		return ;
+	else if (rgb[2] < 0 || rgb[2] > 255)
+		return ;
+	*color = (65536 * rgb[0]) + (256 * rgb[1]) + rgb[2];
 }
 
 int	identifier(t_cub *cub, char *read)
