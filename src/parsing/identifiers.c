@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:52:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/11 14:12:22 by home             ###   ########.fr       */
+/*   Updated: 2022/04/11 14:30:55 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
 /*	Return the number of strings in an array */
-
 static int	count_str(char **ar)
 {
 	int	i;
@@ -30,7 +29,6 @@ static int	count_str(char **ar)
 *	If yes set the bool cub->id to true and go for filling the data
 *	related to the map
 */
-
 void	identifier_done(t_cub *cub)
 {
 	if (cub->no == NULL)
@@ -51,7 +49,6 @@ void	identifier_done(t_cub *cub)
 /*	Go through empty spaces and store the texture path
 *	of a specific identifier
 */
-
 static void	fill_path(char **path, char *read)
 {
 	int		i;
@@ -67,7 +64,6 @@ static void	fill_path(char **path, char *read)
 *	values of Floor / Ceiling
 *	int = 65536 * R + 256 * G + B;
 */
-
 static void	fill_rgb(int *color, char *read)
 {
 	int		i;
@@ -91,11 +87,7 @@ static void	fill_rgb(int *color, char *read)
 	rgb[1] = ft_atoi(arr[1]);
 	rgb[2] = ft_atoi(arr[2]);
 	ft_memfreeall((void **)arr);
-	if (rgb[0] < 0 || rgb[0] > 255)
-		return ;
-	else if (rgb[1] < 0 || rgb[1] > 255)
-		return ;
-	else if (rgb[2] < 0 || rgb[2] > 255)
+	if (!check_rgb_valid(rgb[0], rgb[1], rgb[2]))
 		return ;
 	*color = (65536 * rgb[0]) + (256 * rgb[1]) + rgb[2];
 }

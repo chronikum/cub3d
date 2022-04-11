@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/11 13:44:53 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/11 14:29:18 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,4 +243,5 @@ int				clear_data(t_cub *cub);
 double			ternary_double(bool statement, double is_true, double is_false);
 void			exit_on_error(void);
 void			exit_on_texture_error(void);
+bool			check_rgb_valid(int r, int g, int b);
 #endif

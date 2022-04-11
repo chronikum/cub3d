@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: home <home@student.42.fr>                  +#+  +:+       +#+         #
+#    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/11 10:33:24 by home             ###   ########.fr        #
+#    Updated: 2022/04/11 14:26:21 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ PARSING =	./src/parsing/identifiers.c \
 			./src/parsing/map.c \
 			./src/parsing/parser.c \
 			./src/parsing/spawn_player.c \
-			./src/parsing/spawn_player_direction.c
+			./src/parsing/spawn_player_direction.c \
+			./src/parsing/rgb_helper.c
 
 GNL		=	./src/gnl/get_next_line.c \
 			./src/gnl/get_next_line_utils.c
