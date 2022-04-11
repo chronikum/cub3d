@@ -1,7 +1,7 @@
-NO ./assets/WALL.cub
-SO ./assets/WALL.cub
-WE ./assets/WALL.cub
-EA ./assets/WALL.cub
+NO ./assets/WALL.xpm
+SO ./assets/WALL.xpm
+WE ./assets/WALL.xpm
+EA ./assets/WALL.xpm
 
 F 220,100,0
 C 225,30,0
