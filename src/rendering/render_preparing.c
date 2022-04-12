@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/12 10:19:58 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 14:00:48 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	render_loop(void	*cub_)
 	create_mlx_data(cub);
 	while (x < WIDTH)
 	{
-		fill_floor_ceiling(cub, x);
 		render_walls(cub, x);
+		fill_floor_ceiling(cub, x);
 		x++;
 	}
 	mlx_draw_imagegiven(cub);
