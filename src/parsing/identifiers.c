@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: ysonmez <ysonmez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:52:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/11 14:30:55 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 14:42:22 by ysonmez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,17 @@ static void	fill_rgb(int *color, char *read)
 
 int	identifier(t_cub *cub, char *read)
 {
-	if (read[0] == 'N' && read[1] == 'O' && read[2] == ' ')
+	if (read[0] == 'N' && read[1] == 'O' && read[2] == ' ' && cub->no == NULL)
 		fill_path(&cub->no, &read[2]);
-	else if (read[0] == 'S' && read[1] == 'O' && read[2] == ' ')
+	else if (read[0] == 'S' && read[1] == 'O' && read[2] == ' ' && cub->so == NULL)
 		fill_path(&cub->so, &read[2]);
-	else if (read[0] == 'W' && read[1] == 'E' && read[2] == ' ')
+	else if (read[0] == 'W' && read[1] == 'E' && read[2] == ' ' && cub->we == NULL)
 		fill_path(&cub->we, &read[2]);
-	else if (read[0] == 'E' && read[1] == 'A' && read[2] == ' ')
+	else if (read[0] == 'E' && read[1] == 'A' && read[2] == ' ' && cub->ea == NULL)
 		fill_path(&cub->ea, &read[2]);
-	else if (read[0] == 'F' && read[1] == ' ')
+	else if (read[0] == 'F' && read[1] == ' ' && cub->floor == -1)
 		fill_rgb(&cub->floor, &read[1]);
-	else if (read[0] == 'C' && read[1] == ' ')
+	else if (read[0] == 'C' && read[1] == ' ' && cub->ceiling == -1)
 		fill_rgb(&cub->ceiling, &read[1]);
 	else
 		return (1);
