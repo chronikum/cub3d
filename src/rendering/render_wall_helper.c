@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:13:00 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/12 10:21:49 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:23:43 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ void	draw_textures(t_cub *cub, int x)
 			/ 2 + cub->math->lineheight / 2) * cub->math->step;
 	y_helper = cub->math->drawstart;
 	write_in_mlx_buffer(cub, x, y_helper);
-	cub->math->dBuffer[x] = cub->math->perpwalldist;
+	cub->math->dbuffer[x] = cub->math->perpwalldist;
 }
