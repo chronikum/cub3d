@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/12 10:57:10 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/12 12:40:03 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,13 @@ RENDERING =	./src/rendering/render_preparing.c \
 			./src/rendering/render_wall_helper.c \
 			./src/rendering/mlx_helper.c
 
+RENDERING_BONUS =	./bonus/render_preparing_bonus.c \
+			./src/rendering/render_walls.c \
+			./src/rendering/draw_line_color.c \
+			./src/textures/shading.c \
+			./src/rendering/render_wall_helper.c \
+			./src/rendering/mlx_helper.c
+
 TEXTURES =	./src/textures/textures.c \
 			./src/textures/new_texture.c \
 			./src/textures/fill_floor_ceiling.c \
@@ -76,52 +83,9 @@ MOVEMENT	=	./src/movement/movement.c \
 				./src/movement/rotation.c \
 				./src/movement/mouse_handler.c
 
-ENTRY_BONUS = ./cub3d_bonus/src/main.c
-
-PARSING_BONUS =	./cub3d_bonus/src/parsing/identifiers.c \
-			./cub3d_bonus/src/parsing/lst.c \
-			./cub3d_bonus/src/parsing/map.c \
-			./cub3d_bonus/src/parsing/parser.c \
-			./cub3d_bonus/src/parsing/spawn_player.c \
-			./cub3d_bonus/src/parsing/spawn_player_direction.c \
-			./cub3d_bonus/src/parsing/rgb_helper.c
-
-GNL_BONUS		=	./cub3d_bonus/src/gnl/get_next_line.c \
-			./cub3d_bonus/src/gnl/get_next_line_utils.c
-
-UTILS_BONUS =		./cub3d_bonus/src/utils/build_charmap.c \
-			./cub3d_bonus/src/utils/put_pixel.c \
-			./cub3d_bonus/src/utils/create_vector2.c \
-			./cub3d_bonus/src/utils/ternary_helper.c \
-			./cub3d_bonus/src/utils/exit_error.c
-
-CONTROLS_BONUS = ./cub3d_bonus/src/controls/keyhandler.c
-
-CLEARDATA_BONUS =	./cub3d_bonus/src/clear_data/clear_data.c
-
-RENDERING_BONUS =	./cub3d_bonus/src/rendering/render_preparing.c \
-			./cub3d_bonus/src/rendering/render_walls.c \
-			./cub3d_bonus/src/rendering/draw_line_color.c \
-			./cub3d_bonus/src/textures/shading.c \
-			./cub3d_bonus/src/rendering/render_wall_helper.c \
-			./cub3d_bonus/src/rendering/mlx_helper.c
-
-TEXTURES_BONUS =	./cub3d_bonus/src/textures/textures.c \
-			./cub3d_bonus/src/textures/new_texture.c \
-			./cub3d_bonus/src/textures/fill_floor_ceiling.c \
-			./cub3d_bonus/src/textures/get_texture_direction.c
-
-CACHE_BONUS	=	./cub3d_bonus/src/cache/player_cache.c
-
-MINIMAP_BONUS	=	./cub3d_bonus/src/minimap/minimap.c
-
-MOVEMENT_BONUS	=	./cub3d_bonus/src/movement/movement.c \
-				./cub3d_bonus/src/movement/rotation.c \
-				./cub3d_bonus/src/movement/mouse_handler.c
-
-
 SRCS = $(PARSING) $(CACHE) $(MOVEMENT) $(MINIMAP) $(RENDERING) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
-SRCS_BONUS = $(PARSING_BONUS) $(CACHE_BONUS) $(MOVEMENT_BONUS) $(MINIMAP_BONUS) $(RENDERING_BONUS) $(TEXTURES_BONUS) $(CONTROLS_BONUS) $(CLEARDATA_BONUS) $(GNL_BONUS) $(UTILS_BONUS) $(ENTRY_BONUS)
+
+SRCS_BONUS = $(PARSING) $(CACHE) $(MOVEMENT) $(MINIMAP) $(RENDERING_BONUS) $(TEXTURES) $(CONTROLS) $(CLEARDATA) $(GNL) $(UTILS) $(ENTRY)
 
 PRINT_HEADER	=		echo "                     ";echo "			         _   ___   _ ";echo "			 ___ _ _| |_|_  |_| |";echo "			|  _| | | . |_  | . |";echo "			|___|___|___|___|___|";echo "                     ";
 

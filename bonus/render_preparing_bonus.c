@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_preparing.c                                 :+:      :+:    :+:   */
+/*   render_preparing_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/12 10:19:58 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 12:40:13 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d.h" 
+#include "../inc/cub3d_bonus.h" 
 
 /**
  * This is the render loop. It gets called every frame.
