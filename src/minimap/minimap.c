@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:55:05 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 15:07:31 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 15:53:11 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	draw_player(t_cub *cub, int x, int y, int size)
 	{
 		while (tmp_x < x + size)
 		{
-			if (tmp_x >= 0 && tmp_x < MINIMAP_WIDTH && tmp_y >= 0
-				&& tmp_y < MINIMAP_HEIGHT)
+			if (tmp_x >= 0 && tmp_x < WIDTH && tmp_y >= 0
+				&& tmp_y < HEIGHT)
 				my_mlx_pixel_put(&cub->data, tmp_x, tmp_y, 386486);
 			tmp_x++;
 		}
@@ -59,8 +59,8 @@ void	draw_square(t_cub *cub, int x, int y, int size)
 	{
 		while (tmp_x < x + size)
 		{
-			if (tmp_x >= 0 && tmp_x < MINIMAP_WIDTH && tmp_y >= 0
-				&& tmp_y < MINIMAP_HEIGHT)
+			if (tmp_x >= 0 && tmp_x < WIDTH && tmp_y >= 0
+				&& tmp_y < HEIGHT)
 				my_mlx_pixel_put(&cub->data, tmp_x, tmp_y, 10101099);
 			tmp_x++;
 		}
@@ -83,8 +83,8 @@ void	draw_floor(t_cub *cub, int x, int y, int size)
 	{
 		while (tmp_x < x + size)
 		{
-			if (tmp_x >= 0 && tmp_x < MINIMAP_WIDTH && tmp_y >= 0
-				&& tmp_y < MINIMAP_HEIGHT)
+			if (tmp_x >= 0 && tmp_x < WIDTH && tmp_y >= 0
+				&& tmp_y < HEIGHT)
 				my_mlx_pixel_put(&cub->data, tmp_x, tmp_y, 15535);
 			tmp_x++;
 		}

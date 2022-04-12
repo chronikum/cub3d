@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/12 12:40:03 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/12 15:15:55 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ Cyan			=		\033[0;36m					# Cyan
 
 CC = gcc
 
-NAME = cub3d
+NAME = cub3D
 
 ENTRY = ./src/main.c
 
@@ -97,7 +97,7 @@ LIB				=		@make -C ./libft
 
 MLX				=		@make -C $(mlxpath)
 
-CFLAGS			=		-Wall -Werror -Wextra -g
+CFLAGS			=		-Wall -Werror -Wextra -g -fsanitize=address
 
 DEBUG			=		-g -fsanitize=address
 
