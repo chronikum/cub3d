@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 19:21:02 by home             ###   ########.fr       */
+/*   Updated: 2022/04/12 19:23:50 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 				return (NULL);
 			else if (checker == 1 && cub->map != NULL)
 				return (NULL);
-			else if (checker == 0 && cub->map != NULL)
+			else if (checker == 0 && cub->map != NULL && ft_memfree((void *)read))
 				break;
 		}
 		else if (cub->id_done == false && identifier(cub, read))
