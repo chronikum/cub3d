@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysonmez <ysonmez@student.42.fr>            +#+  +:+       +#+        */
+/*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 16:53:04 by ysonmez          ###   ########.fr       */
+/*   Updated: 2022/04/12 19:21:02 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,19 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 {
 	int checker;
 
-	checker = 0;
 	cub = (t_cub *)xmalloc(sizeof(t_cub));
 	init_data(cub);
-	get_next_line(fd, &read);
+	checker = get_next_line(fd, &read);
 	while (read != NULL)
 	{
 		if (ft_strcmp(read, "\0") == 0)
 		{
-			if (cub->map != NULL && ft_memfree((void *)read))
-				break ;
+			if (checker == 0 && (!cub->id_done))
+				return (NULL);
+			else if (checker == 1 && cub->map != NULL)
+				return (NULL);
+			else if (checker == 0 && cub->map != NULL)
+				break;
 		}
 		else if (cub->id_done == false && identifier(cub, read))
 			exit_on_error();
@@ -67,8 +70,6 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 		identifier_done(cub);
 		free(read);
 		checker = get_next_line(fd, &read);
-		if (checker == 0 && (!cub->id_done))
-			return (NULL);
 	}
 	cub->map_done = is_map_valid(cub, false, 0);
 	build_2d_charmap(cub);
