@@ -6,7 +6,7 @@
 /*   By: ysonmez <ysonmez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 16:51:42 by ysonmez          ###   ########.fr       */
+/*   Updated: 2022/04/12 16:53:04 by ysonmez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_cub	*check_file_content(char *file)
 		exit_on_error();
 	cub = get_data(fd, NULL, NULL);
 	if (cub == NULL)
-		ft_putendl_fd("Error\nmisconfiguration", 2);
+		exit_on_error();
 	if (close(fd) == -1)
 		exit_on_error();
 	return (cub);
