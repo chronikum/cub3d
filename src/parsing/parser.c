@@ -6,7 +6,7 @@
 /*   By: ysonmez <ysonmez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 16:49:29 by ysonmez          ###   ########.fr       */
+/*   Updated: 2022/04/12 16:51:42 by ysonmez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 		identifier_done(cub);
 		free(read);
 		checker = get_next_line(fd, &read);
-		if (checker == 0)
+		if (checker == 0 && (!cub->id_done))
 			return (NULL);
 	}
 	cub->map_done = is_map_valid(cub, false, 0);
