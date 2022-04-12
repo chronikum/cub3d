@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/11 17:10:52 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 13:06:22 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 		get_next_line(fd, &read);
 	}
 	cub->map_done = is_map_valid(cub, false, 0);
-	build_2d_charmap(cub);
 	if ((cub->id_done == false || cub->map_done == false))
 		exit_on_error();
 	return (cub);

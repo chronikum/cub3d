@@ -4,5 +4,6 @@ Cub3D
 Missing:
 
 Map parsing:
-- Ignore spaces or handle them (see default map)
-- Allow non-rectangular maps
+- Handle stupid ass segfault
+- Duplication of identifier
+- Map is surrounded by walls before replacing spaces with 1
