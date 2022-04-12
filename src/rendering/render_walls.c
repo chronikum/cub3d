@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/12 10:22:48 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 14:17:19 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init_raycast(t_cub *c, int x)
 	c->math->stepx = 0;
 	c->math->stepy = 0;
 	c->math->wall_found = false;
-	c->math->perpwalldist = 0;
+	c->math->perpwalldist = 0.000001;
 	c->math->sidedistx = 0;
 	c->math->sidedisty = 0;
 	c->math->side = -1;
@@ -108,6 +108,8 @@ void	raycast_on_grid_lines(t_cub *c)
 		c->math->perpwalldist = (c->math->sidedistx - c->math->deltadistx);
 	else
 		c->math->perpwalldist = (c->math->sidedisty - c->math->deltadisty);
+	if (c->math->perpwalldist < 0.1)
+		c->math->perpwalldist = 0.1;
 	calculate_line_height_drawstartend(c);
 }
 
