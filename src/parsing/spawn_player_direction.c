@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:29:16 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 15:33:39 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:22:48 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
  */
 int	spawn_west(t_cub *cub)
 {
-	cub->math->dirX = 0.00;
-	cub->math->dirY = -1.00;
-	cub->math->planeX = -0.66;
-	cub->math->planeY = 0;
+	cub->math->dirx = 0.00;
+	cub->math->diry = -1.00;
+	cub->math->planex = -0.66;
+	cub->math->planey = 0;
 	return (1);
 }
 
@@ -29,10 +29,10 @@ int	spawn_west(t_cub *cub)
  */
 int	spawn_east(t_cub *cub)
 {
-	cub->math->dirX = 0.00;
-	cub->math->dirY = 1.00;
-	cub->math->planeX = 0.66;
-	cub->math->planeY = 0;
+	cub->math->dirx = 0.00;
+	cub->math->diry = 1.00;
+	cub->math->planex = 0.66;
+	cub->math->planey = 0;
 	return (1);
 }
 
@@ -41,10 +41,10 @@ int	spawn_east(t_cub *cub)
  */
 int	spawn_north(t_cub *cub)
 {
-	cub->math->dirX = -1.00;
-	cub->math->dirY = 0.00;
-	cub->math->planeX = 0;
-	cub->math->planeY = 0.66;
+	cub->math->dirx = -1.00;
+	cub->math->diry = 0.00;
+	cub->math->planex = 0;
+	cub->math->planey = 0.66;
 	return (1);
 }
 
@@ -53,9 +53,9 @@ int	spawn_north(t_cub *cub)
  */
 int	spawn_south(t_cub *cub)
 {
-	cub->math->dirX = 1.00;
-	cub->math->dirY = 0.00;
-	cub->math->planeY = -0.66;
-	cub->math->planeX = 0;
+	cub->math->dirx = 1.00;
+	cub->math->diry = 0.00;
+	cub->math->planey = -0.66;
+	cub->math->planex = 0;
 	return (1);
 }

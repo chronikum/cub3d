@@ -6,26 +6,26 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:22:55 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 15:22:10 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:22:48 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
 /**
- * Calculate lineHeight, drawStart and drawEnd
+ * Calculate lineheight, drawstart and drawend
  */
 void	calculate_line_height_drawstartend(t_cub *c)
 {
-	c->math->lineHeight = (int)(HEIGHT / c->math->perpWallDist);
-	c->math->drawStart
-		= -c->math->lineHeight / 2 + (int) HEIGHT / 2;
-	if (c->math->drawStart < 0)
-		c->math->drawStart = 0;
-	c->math->drawEnd
-		= c->math->lineHeight / 2 + (int)HEIGHT / 2;
-	if (c->math->drawEnd >= (int) HEIGHT)
-		c->math->drawEnd = (int) HEIGHT - 1;
+	c->math->lineheight = (int)(HEIGHT / c->math->perpwalldist);
+	c->math->drawstart
+		= -c->math->lineheight / 2 + (int) HEIGHT / 2;
+	if (c->math->drawstart < 0)
+		c->math->drawstart = 0;
+	c->math->drawend
+		= c->math->lineheight / 2 + (int)HEIGHT / 2;
+	if (c->math->drawend >= (int) HEIGHT)
+		c->math->drawend = (int) HEIGHT - 1;
 }
 
 /**
@@ -33,21 +33,21 @@ void	calculate_line_height_drawstartend(t_cub *c)
  */
 void	init_raycast(t_cub *c, int x)
 {
-	c->math->cameraX = 2 * x / (double) WIDTH - 1;
-	c->math->rayDirX = c->math->dirX + c->math->planeX * c->math->cameraX;
-	c->math->rayDirY = c->math->dirY + c->math->planeY * c->math->cameraX;
-	c->math->deltaDistX = ternary_double((c->math->rayDirX == 0),
-			1e30, fabs(1 / c->math->rayDirX));
-	c->math->deltaDistY = ternary_double((c->math->rayDirY == 0),
-			1e30, fabs(1 / c->math->rayDirY));
-	c->math->mapX = (int)c->player->x;
-	c->math->mapY = (int)c->player->y;
-	c->math->stepX = 0;
-	c->math->stepY = 0;
+	c->math->camerax = 2 * x / (double) WIDTH - 1;
+	c->math->raydirx = c->math->dirx + c->math->planex * c->math->camerax;
+	c->math->raydiry = c->math->diry + c->math->planey * c->math->camerax;
+	c->math->deltadistx = ternary_double((c->math->raydirx == 0),
+			1e30, fabs(1 / c->math->raydirx));
+	c->math->deltadisty = ternary_double((c->math->raydiry == 0),
+			1e30, fabs(1 / c->math->raydiry));
+	c->math->mapx = (int)c->player->x;
+	c->math->mapy = (int)c->player->y;
+	c->math->stepx = 0;
+	c->math->stepy = 0;
 	c->math->wall_found = false;
-	c->math->perpWallDist = 0;
-	c->math->sideDistX = 0;
-	c->math->sideDistY = 0;
+	c->math->perpwalldist = 0;
+	c->math->sidedistx = 0;
+	c->math->sidedisty = 0;
 	c->math->side = -1;
 }
 
@@ -56,29 +56,29 @@ void	init_raycast(t_cub *c, int x)
  */
 void	calculate_stepxy(t_cub *c)
 {
-	if (c->math->rayDirX < 0)
+	if (c->math->raydirx < 0)
 	{
-		c->math->stepX = -1;
-		c->math->sideDistX = (c->player->x - c->math->mapX)
-			* c->math->deltaDistX;
+		c->math->stepx = -1;
+		c->math->sidedistx = (c->player->x - c->math->mapx)
+			* c->math->deltadistx;
 	}
 	else
 	{
-		c->math->stepX = 1;
-		c->math->sideDistX = ((c->math->mapX + 1.0) - c->player->x)
-			* c->math->deltaDistX;
+		c->math->stepx = 1;
+		c->math->sidedistx = ((c->math->mapx + 1.0) - c->player->x)
+			* c->math->deltadistx;
 	}
-	if (c->math->rayDirY < 0)
+	if (c->math->raydiry < 0)
 	{
-		c->math->stepY = -1;
-		c->math->sideDistY = (c->player->y - c->math->mapY)
-			* c->math->deltaDistY;
+		c->math->stepy = -1;
+		c->math->sidedisty = (c->player->y - c->math->mapy)
+			* c->math->deltadisty;
 	}
 	else
 	{
-		c->math->stepY = 1;
-		c->math->sideDistY = ((c->math->mapY + 1.0) - c->player->y)
-			* c->math->deltaDistY;
+		c->math->stepy = 1;
+		c->math->sidedisty = ((c->math->mapy + 1.0) - c->player->y)
+			* c->math->deltadisty;
 	}
 }
 
@@ -89,25 +89,25 @@ void	raycast_on_grid_lines(t_cub *c)
 {
 	while (c->math->wall_found == false)
 	{
-		if (c->math->sideDistX < c->math->sideDistY)
+		if (c->math->sidedistx < c->math->sidedisty)
 		{
-			c->math->sideDistX += c->math->deltaDistX;
-			c->math->mapX += c->math->stepX;
+			c->math->sidedistx += c->math->deltadistx;
+			c->math->mapx += c->math->stepx;
 			c->math->side = 0;
 		}
 		else
 		{
-			c->math->sideDistY += c->math->deltaDistY;
-			c->math->mapY += c->math->stepY;
+			c->math->sidedisty += c->math->deltadisty;
+			c->math->mapy += c->math->stepy;
 			c->math->side = 1;
 		}
-		if (get_node_value_at(c, c->math->mapY, c->math->mapX) == '1')
+		if (get_node_value_at(c, c->math->mapy, c->math->mapx) == '1')
 			c->math->wall_found = true;
 	}
 	if (c->math->side == 0)
-		c->math->perpWallDist = (c->math->sideDistX - c->math->deltaDistX);
+		c->math->perpwalldist = (c->math->sidedistx - c->math->deltadistx);
 	else
-		c->math->perpWallDist = (c->math->sideDistY - c->math->deltaDistY);
+		c->math->perpwalldist = (c->math->sidedisty - c->math->deltadisty);
 	calculate_line_height_drawstartend(c);
 }
 
@@ -123,7 +123,7 @@ double	render_walls(t_cub *c, int x)
 	raycast_on_grid_lines(c);
 	draw_textures(c, x);
 	if (c->math->wall_found)
-		return (c->math->perpWallDist);
+		return (c->math->perpwalldist);
 	else
 		return (-1);
 }

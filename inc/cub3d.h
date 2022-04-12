@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/11 17:47:16 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:22:52 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,48 +95,40 @@ typedef struct s_movetrigger {
 
 typedef struct s_math {
 	char		playerdir;
-	double		posX;
-	double		posY;
-	double		dirX;
-	double		dirY;
-	double		planeX;
-	double		planeY;
-	double		time;
-	double		oldTime;
-	double		cameraX;
-	double		rayDirX;
-	double		rayDirY;
-	int			mapX;
-	int			maxX;
-	int			mapY;
-	int			maxY;
-	double		stepX;
-	double		stepY;
+	double		dirx;
+	double		diry;
+	double		planex;
+	double		planey;
+	double		camerax;
+	double		raydirx;
+	double		raydiry;
+	int			mapx;
+	int			mapy;
+	double		stepx;
+	double		stepy;
 	bool		wall_found;
 	double		side;
-	double		lineHeight;
-	double		drawStart;
-	double		drawEnd;
-	double		sideDistX;
-	double		sideDistY;
-	double		deltaDistX;
-	double		deltaDistY;
-	double		perpWallDist;
-	double		moveSpeed;
-	double		rotSpeed;
-	double		oldDirX;
-	double		oldPlaneX;
-	double		spritePosX;
-	double		spritePosY;
+	double		lineheight;
+	double		drawstart;
+	double		drawend;
+	double		sidedistx;
+	double		sidedisty;
+	double		deltadistx;
+	double		deltadisty;
+	double		perpwalldist;
+	double		movespeed;
+	double		rotspeed;
+	double		olddirx;
+	double		oldplanex;
 	int			buff[HEIGHT][WIDTH];
 	int			dBuffer[WIDTH];
 	int			**texture;
-	double		wallX;
-	int			texX;
+	double		wallx;
+	int			texx;
 	double		step;
-	double		texPos;
-	int			texY;
-	int			texColor;
+	double		texpos;
+	int			texy;
+	int			texcolor;
 }	t_math;
 
 typedef struct s_vec2 {

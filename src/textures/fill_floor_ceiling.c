@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 14:13:23 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/10 18:58:58 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:20:56 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	fill_floor_ceiling(t_cub *cub, int x)
 	int	fc;
 
 	fc = 0;
-	while (fc < cub->math->drawStart)
+	while (fc < cub->math->drawstart)
 	{
 		cub->math->buff[fc][x] = cub->ceiling;
 		fc++;
 	}
-	fc = cub->math->drawEnd;
+	fc = cub->math->drawend;
 	while (fc < HEIGHT)
 	{
 		cub->math->buff[fc][x] = cub->floor;

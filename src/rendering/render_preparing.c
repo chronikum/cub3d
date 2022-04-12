@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:08:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/11 18:14:35 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:19:58 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	render_loop(void	*cub_)
  */
 void	set_moverot_speeds(t_cub *cub)
 {
-	cub->math->moveSpeed = 0.5;
-	cub->math->rotSpeed = 0.1;
+	cub->math->movespeed = 0.5;
+	cub->math->rotspeed = 0.1;
 }
 
 /**

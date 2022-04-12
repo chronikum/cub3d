@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 13:14:10 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/11 10:36:10 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:22:48 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	move_forward(t_cub *cub)
 	double	new_x;
 	double	new_y;
 
-	new_x = cub->player->x + cub->math->dirX * cub->math->moveSpeed;
-	new_y = cub->player->y + cub->math->dirY * cub->math->moveSpeed;
+	new_x = cub->player->x + cub->math->dirx * cub->math->movespeed;
+	new_y = cub->player->y + cub->math->diry * cub->math->movespeed;
 	if (get_node_value_at(cub, new_y, new_x) != '1')
 	{
 		cub->player->x = new_x;
@@ -37,8 +37,8 @@ void	move_backward(t_cub *cub)
 	double	new_x;
 	double	new_y;
 
-	new_x = cub->player->x - cub->math->dirX * cub->math->moveSpeed;
-	new_y = cub->player->y - cub->math->dirY * cub->math->moveSpeed;
+	new_x = cub->player->x - cub->math->dirx * cub->math->movespeed;
+	new_y = cub->player->y - cub->math->diry * cub->math->movespeed;
 	if (get_node_value_at(cub, new_y, new_x) != '1')
 	{
 		cub->player->x = new_x;
@@ -54,8 +54,8 @@ void	move_left(t_cub *cub)
 	double	new_x;
 	double	new_y;
 
-	new_x = cub->player->x - cub->math->planeX * cub->math->moveSpeed;
-	new_y = cub->player->y - cub->math->planeY * cub->math->moveSpeed;
+	new_x = cub->player->x - cub->math->planex * cub->math->movespeed;
+	new_y = cub->player->y - cub->math->planey * cub->math->movespeed;
 	if (get_node_value_at(cub, new_y, new_x) != '1')
 	{
 		cub->player->x = new_x;
@@ -71,8 +71,8 @@ void	move_right(t_cub *cub)
 	double	new_x;
 	double	new_y;
 
-	new_x = cub->player->x + cub->math->planeX * cub->math->moveSpeed;
-	new_y = cub->player->y + cub->math->planeY * cub->math->moveSpeed;
+	new_x = cub->player->x + cub->math->planex * cub->math->movespeed;
+	new_y = cub->player->y + cub->math->planey * cub->math->movespeed;
 	if (get_node_value_at(cub, new_y, new_x) != '1')
 	{
 		cub->player->x = new_x;
