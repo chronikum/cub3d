@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:51:46 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 13:06:52 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 13:33:49 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,6 @@ int	map(t_cub *cub, t_map *tmp, char *read, int i)
 	}
 	cub->i += 1;
 	cub->map_data = map_data;
-	build_2d_charmap(cub);
 	free(str);
 	return (0);
 }
