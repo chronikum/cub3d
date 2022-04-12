@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: ysonmez <ysonmez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 13:33:39 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/12 16:49:29 by ysonmez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	init_data(t_cub *cub)
 
 t_cub	*get_data(int fd, char *read, t_cub *cub)
 {
+	int checker;
+
+	checker = 0;
 	cub = (t_cub *)xmalloc(sizeof(t_cub));
 	init_data(cub);
 	get_next_line(fd, &read);
@@ -63,7 +66,9 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 			exit_on_error();
 		identifier_done(cub);
 		free(read);
-		get_next_line(fd, &read);
+		checker = get_next_line(fd, &read);
+		if (checker == 0)
+			return (NULL);
 	}
 	cub->map_done = is_map_valid(cub, false, 0);
 	build_2d_charmap(cub);
