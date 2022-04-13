@@ -1,5 +1,5 @@
 R 100 720
-WE ./textures/greystone.xpm
+WE ./assets/greystone.xpm
 SO ./textures/redbrick.xpm
 EA ./textures/wood.xpm
 NO ./textures/wood.xpm
