@@ -1,11 +1,17 @@
 echo "Please run me like this ./maps/map_test.sh"
 echo "Following maps should all fail and exit."
+echo "If the tester gets stuck, that means something is not right and the program likely does not handle that case correctly."
+
+maps_failed=0
+maps_ok=0
 
 function_check_error () {
 	if [ "$?" -ne 1 ]; then
-		echo "TEST FAIL: $1";
+		printf "TEST FAIL: $1\n";
+		((maps_failed=maps_failed+1))
 	else
-		echo "TEST OK: $1";
+		printf "TEST OK for map $1\n";
+		((maps_ok=maps_ok+1))
 	fi
 }
 
@@ -38,3 +44,8 @@ do
   ./cub3D $f > /dev/null 2>&1
   function_check_error "$f"
 done
+
+echo "\n\nTesting of all maps finished!"
+echo "Result is:"
+echo "Correctly handled maps: $maps_ok"
+echo "NOT correctly handled maps: $maps_failed"
