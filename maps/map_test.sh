@@ -2,10 +2,10 @@ echo "Please run me like this ./maps/map_test.sh"
 echo "Following maps should all fail and exit."
 
 function_check_error () {
-	if [ "$?" -ne 0 ]; then
-		echo "TEST OK: $1";
-	else
+	if [ "$?" -ne 1 ]; then
 		echo "TEST FAIL: $1";
+	else
+		echo "TEST OK: $1";
 	fi
 }
 
@@ -31,3 +31,10 @@ function_check_error "unknown direction key"
 function_check_error "overflow rgb value"
 ./cub3D ./maps/wrong_rgb2.cub > /dev/null 2>&1
 function_check_error "underflow rgb value"
+
+FILES="./maps/invalid_maps/*"
+for f in $FILES
+do
+  ./cub3D $f > /dev/null 2>&1
+  function_check_error "$f"
+done

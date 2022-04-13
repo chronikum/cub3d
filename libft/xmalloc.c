@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:20:48 by jfritz            #+#    #+#             */
-/*   Updated: 2022/04/12 12:36:42 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/13 16:11:52 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	*xmalloc(size_t size)
 		return (NULL);
 	dest = malloc(size);
 	if (!dest)
-		exit(0);
+		exit(1);
 	return (dest);
 }
