@@ -19,4 +19,4 @@ We have an advanced map tester, based on maps from [mlaraki](https://github.com/
 
 To use it, build to project in bonus or mandatory mode and then run `make map_test`
 
-We recommend to wonderful tutorial from the amazing [lodev.org](https://lodev.org/cgtutor/raycasting2.html). It is worth the time and the read and it helped us massively doing this project.
+We recommend the wonderful tutorial from the amazing [lodev.org](https://lodev.org/cgtutor/raycasting2.html). It is worth the time and the read and it helped us massively doing this project.
