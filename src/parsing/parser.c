@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/13 11:29:52 by home             ###   ########.fr       */
+/*   Updated: 2022/04/13 12:59:22 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_data(t_cub *cub)
 
 t_cub	*get_data(int fd, char *read, t_cub *cub)
 {
-	int checker;
+	int	checker;
 
 	cub = (t_cub *)xmalloc(sizeof(t_cub));
 	init_data(cub);
@@ -57,8 +57,9 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 				return (NULL);
 			else if (cub->map != NULL && cub->map_done == false)
 				return (NULL);
-			else if (checker == 0 && cub->map_done == true && ft_memfree((void *)read))
-				break;
+			else if (checker == 0 && cub->map_done == true
+				&& ft_memfree((void *)read))
+				break ;
 		}
 		else if (cub->id_done == false && identifier(cub, read))
 			exit_on_error();
