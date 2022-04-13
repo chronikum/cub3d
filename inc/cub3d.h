@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:29:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 14:59:22 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/13 16:58:41 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,5 +240,5 @@ bool			check_rgb_valid(int r, int g, int b);
 int				close_hook(void);
 void			close_window(t_cub *cub);
 void			close_static_saver(t_cub *set_cub);
-bool			map_surrounded(t_cub *cub);
+bool			no_or_invalid_map_in_file(t_cub *cub, int ok);
 #endif

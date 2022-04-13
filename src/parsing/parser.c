@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/13 16:09:35 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/13 16:58:37 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 		{
 			cub->map_done = is_map_valid(cub, false, 0);
 			if ((ok == 0 && (!cub->id_done))
-				|| (cub->map != NULL && cub->map_done == false))
+				|| no_or_invalid_map_in_file(cub, ok))
 				return (NULL);
 			else if (ok == 0 && cub->map_done == true && memfree((void *)read))
 				break ;
