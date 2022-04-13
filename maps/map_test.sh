@@ -13,6 +13,8 @@ function_check_error () {
 function_check_error "Double ID"
 ./cub3D ./maps/double_rgb.cub > /dev/null 2>&1
 function_check_error "Double RGB"
+./cub3D ./maps/double_map.cub > /dev/null 2>&1
+function_check_error "Double Map"
 ./cub3D ./maps/emptymap.cub > /dev/null 2>&1
 function_check_error "Empty map"
 ./cub3D ./maps/invalid_symbol.cub > /dev/null 2>&1
