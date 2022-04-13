@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memfreeall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysonmez <ysonmez@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 10:56:02 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/02/09 15:23:10 by ysonmez          ###   ########.fr       */
+/*   Updated: 2022/04/13 14:18:00 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_memfreeall(void **ptr)
 		return (1);
 	while (ptr[i] != NULL)
 	{
-		ft_memfree(ptr[i]);
+		memfree(ptr[i]);
 		i++;
 	}
 	free(ptr);

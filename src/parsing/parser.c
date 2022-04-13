@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/13 14:05:44 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/13 14:18:47 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,20 @@ void	init_data(t_cub *cub)
 
 t_cub	*get_data(int fd, char *read, t_cub *cub)
 {
-	int	checker;
+	int	ok;
 
 	cub = (t_cub *)xmalloc(sizeof(t_cub));
 	init_data(cub);
-	checker = get_next_line(fd, &read);
+	ok = get_next_line(fd, &read);
 	while (read != NULL)
 	{
 		if (ft_strcmp(read, "\0") == 0)
 		{
 			cub->map_done = is_map_valid(cub, false, 0);
-			if (checker == 0 && (!cub->id_done))
+			if ((ok == 0 && (!cub->id_done))
+				|| (cub->map != NULL && cub->map_done == false))
 				return (NULL);
-			else if (cub->map != NULL && cub->map_done == false)
-				return (NULL);
-			else if (checker == 0 && cub->map_done == true
-				&& ft_memfree((void *)read))
+			else if (ok == 0 && cub->map_done == true && memfree((void *)read))
 				break ;
 		}
 		else if (cub->id_done == false && identifier(cub, read))
@@ -79,7 +77,7 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 			exit_on_error();
 		identifier_done(cub);
 		free(read);
-		checker = get_next_line(fd, &read);
+		ok = get_next_line(fd, &read);
 	}
 	return (build_map_if_ok(cub));
 }
