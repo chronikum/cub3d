@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/13 16:59:18 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/13 17:10:10 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ LIB				=		@make -C ./libft
 
 MLX				=		@make -C $(mlxpath)
 
-CFLAGS			=		-Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS			=		-Wall -Werror -Wextra
 
 DEBUG			=		-g -fsanitize=address
 
