@@ -6,11 +6,22 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/13 12:59:22 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/13 14:04:10 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
+
+/**
+ * Builds 2d charmap if identifier and map are ok.
+ * Otherwise, it will exit on error.
+ */
+void	build_map_if_ok(t_cub *cub)
+{
+	if ((cub->id_done == false || cub->map_done == false))
+		exit_on_error();
+	build_2d_charmap(cub);
+}
 
 /*	Initialize the data and the pointers
 *	NO/SO/WE/EA Identifiers
@@ -18,7 +29,6 @@
 *	C Ceiling RGB Colours
 *
 */
-
 void	init_data(t_cub *cub)
 {
 	cub->no = NULL;
@@ -69,9 +79,7 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 		free(read);
 		checker = get_next_line(fd, &read);
 	}
-	if ((cub->id_done == false || cub->map_done == false))
-		exit_on_error();
-	build_2d_charmap(cub);
+	build_map_if_ok(cub);
 	return (cub);
 }
 
