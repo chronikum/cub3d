@@ -1,9 +1,9 @@
 R 1080 720
-NO ./textures/WALL.xpm
-SO ./textures/WALL.xpm
-EA ./textures/WALL.xpm
-WE ./textures/WALL.xpm
-S ./textures/barrel.xpm
+NO ./assets/WALL.xpm
+SO ./assets/WALL.xpm
+EA ./assets/WALL.xpm
+WE ./assets/WALL.xpm
+S ./assets/barrel.xpm
 C 255,200,200
 F ,122,122,122
 
