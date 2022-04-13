@@ -1,12 +1,12 @@
 R 100 720
-WE ./assets/greystone.xpm
-SO ./textures/redbrick.xpm
-EA ./textures/wood.xpm
-NO ./textures/wood.xpm
+WE ./assets/WALL.xpm
+SO ./textures/WALL.xpm
+EA ./textures/WALL.xpm
+NO ./textures/WALL.xpm
 S ./textures/barrel.xpm
 C 255,200,160
 F 122,122,122
-WE ./textures/greystone.xpm
+WE ./textures/WALL.xpm
 
 11111111111111111
 10000000000000001

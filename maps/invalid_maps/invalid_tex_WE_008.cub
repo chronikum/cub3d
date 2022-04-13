@@ -1,9 +1,9 @@
 R 100 720
 WE ./wolf
-tex/greystone.xpm
-SO ./textures/redbrick.xpm
-EA ./textures/wood.xpm
-NO ./textures/wood.xpm
+tex/WALL.xpm
+SO ./textures/WALL.xpm
+EA ./textures/WALL.xpm
+NO ./textures/WALL.xpm
 S ./textures/barrel.xpm
 C 255,200,160
 F 122,122,122

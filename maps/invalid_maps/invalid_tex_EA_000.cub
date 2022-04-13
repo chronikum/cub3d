@@ -1,8 +1,8 @@
 R 100 720
-NO ./textures/redbrick.xpm
-SO ./textures/wood.xpm
-Ea ./textures/greystone.xpm
-WE ./textures/wood.xpm
+NO ./textures/WALL.xpm
+SO ./textures/WALL.xpm
+Ea ./textures/WALL.xpm
+WE ./textures/WALL.xpm
 S ./textures/barrel.xpm
 C 255,200,160
 F 122,122,122
