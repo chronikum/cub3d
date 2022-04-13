@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysonmez <ysonmez@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:52:48 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 14:42:22 by ysonmez          ###   ########.fr       */
+/*   Updated: 2022/04/13 12:57:40 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,17 @@ static void	fill_rgb(int *color, char *read)
 
 int	identifier(t_cub *cub, char *read)
 {
-	if (read[0] == 'N' && read[1] == 'O' && read[2] == ' ' && cub->no == NULL)
+	if (read[0] == 'N' && read[1] == 'O' && read[2] == ' '
+		&& !cub->no)
 		fill_path(&cub->no, &read[2]);
-	else if (read[0] == 'S' && read[1] == 'O' && read[2] == ' ' && cub->so == NULL)
+	else if (read[0] == 'S' && read[1] == 'O' && read[2] == ' '
+		&& !cub->so)
 		fill_path(&cub->so, &read[2]);
-	else if (read[0] == 'W' && read[1] == 'E' && read[2] == ' ' && cub->we == NULL)
+	else if (read[0] == 'W' && read[1] == 'E' && read[2] == ' '
+		&& !cub->we)
 		fill_path(&cub->we, &read[2]);
-	else if (read[0] == 'E' && read[1] == 'A' && read[2] == ' ' && cub->ea == NULL)
+	else if (read[0] == 'E' && read[1] == 'A' && read[2] == ' '
+		&& !cub->ea)
 		fill_path(&cub->ea, &read[2]);
 	else if (read[0] == 'F' && read[1] == ' ' && cub->floor == -1)
 		fill_rgb(&cub->floor, &read[1]);

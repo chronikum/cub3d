@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 16:37:58 by jfritz            #+#    #+#              #
-#    Updated: 2022/04/12 16:17:50 by jfritz           ###   ########.fr        #
+#    Updated: 2022/04/13 15:53:09 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -163,5 +163,8 @@ all				:		$(NAME)
 re				:		fclean all
 
 bonus				:	fclean bonus_com
+
+map_test			:	
+						sh ./maps/map_test.sh
 
 .PHONY			:		clean fclean all re bonus

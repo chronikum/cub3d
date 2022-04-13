@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 08:41:10 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/02/25 12:37:28 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/13 14:17:16 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-int		ft_memfree(void *ptr);
+int		memfree(void *ptr);
 int		ft_memfreeall(void **ptr);
 void	*xmalloc(size_t size);
 int		ft_inset(char *str, char const *set);
