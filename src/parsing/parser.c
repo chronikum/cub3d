@@ -6,11 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:23:08 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 19:23:50 by home             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/*   Updated: 2022/02/26 18:35:27 by ysonmez          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:46:01 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +14,8 @@
 
 /*	Initialize the data and the pointers
 *	NO/SO/WE/EA Identifiers
-*	F[0-1-2] Floor RGB Colours
-*	C[0-1-2] Ceiling RGB Colours
+*	F Floor RGB Colours
+*	C Ceiling RGB Colours
 *
 */
 
@@ -56,11 +52,12 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 	{
 		if (ft_strcmp(read, "\0") == 0)
 		{
+			cub->map_done = is_map_valid(cub, false, 0);
 			if (checker == 0 && (!cub->id_done))
 				return (NULL);
-			else if (checker == 1 && cub->map != NULL)
+			else if (checker == 1 && cub->map != NULL && cub->map_done == false)
 				return (NULL);
-			else if (checker == 0 && cub->map != NULL && ft_memfree((void *)read))
+			else if (checker == 0 && cub->map_done == true && ft_memfree((void *)read))
 				break;
 		}
 		else if (cub->id_done == false && identifier(cub, read))
@@ -71,10 +68,9 @@ t_cub	*get_data(int fd, char *read, t_cub *cub)
 		free(read);
 		checker = get_next_line(fd, &read);
 	}
-	cub->map_done = is_map_valid(cub, false, 0);
-	build_2d_charmap(cub);
 	if ((cub->id_done == false || cub->map_done == false))
 		exit_on_error();
+	build_2d_charmap(cub);
 	return (cub);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:51:46 by ysonmez           #+#    #+#             */
-/*   Updated: 2022/04/12 15:59:57 by jfritz           ###   ########.fr       */
+/*   Updated: 2022/04/13 10:48:12 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ int	map(t_cub *cub, t_map *tmp, char *read, int i)
 	static t_map_data	*map_data = NULL;
 	char				*str;
 
+	if (cub->map_done == true)
+		return (1);
 	str = ft_replace_chars(read, ' ', '1');
 	if (str == NULL)
 		return (1);
