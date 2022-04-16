@@ -3,7 +3,7 @@ SO ./assets/WALL.xpm
 WE ./assets/WALL.xpm
 EA ./assets/WALL.xpm
 
-F 220,100,0
+F 210,100,0
 C 225,30,0
 
         1111111111111111111111111
